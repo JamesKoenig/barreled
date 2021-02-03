@@ -1,2 +1,2 @@
 # Barreled
-Barreled, a clone of tumblr (barrel finishing &lt;-> tumble finishing)
+Barreled, a clone of tumblr (barrel finishing is to metals as tumble finishing is to rocks) 
