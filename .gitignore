@@ -1,0 +1,23 @@
+
+# ignore all node modules
+node_modules/
+
+# ignore any webpack bundled code
+bundle.js
+bundle.js.map
+
+# ignore any vim swapfiles
+*.swp
+
+# ignore all logfiles
+*.log
+
+# ignore any os-generated files
+.DS_Store
+**/__MACOSX
+
+# ignore the master.key
+config/master.key
+
+# ignore all temp files like the cache
+tmp/
