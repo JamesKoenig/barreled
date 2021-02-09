@@ -1,8 +1,13 @@
-import React from 'react';
+import React    from 'react';
 import ReactDOM from 'react-dom';
+
+import { createStore } from 'redux';
+
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
-  ReactDOM.render(<p>hello world!</p>, root);
+  const store = createStore(() => {}, {});
+  ReactDOM.render(<Root store={store} />, root);
 });
