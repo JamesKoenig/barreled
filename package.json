@@ -21,8 +21,13 @@
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
+  },
   "scripts": {
-      "build:dev": "webpack --mode=development"
+    "build:dev": "webpack --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
