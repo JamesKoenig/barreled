@@ -7,7 +7,6 @@ import App from './app.jsx';
 export default ( { store } ) => (
   <Provider store={store}>
     <HashRouter>
-      <p>I'm in root.jsx!</p>
       <App />
     </HashRouter>
   </Provider>
