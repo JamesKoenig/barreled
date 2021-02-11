@@ -7,7 +7,15 @@ import * as SessionActions from './actions/session';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const store = configureStore();
+  let preloadedState = undefined;
+  if (window.currentUserId) {
+    preloadedState = {
+      session: {
+        currentUserId: window.currentUserId
+      }
+    };
+  }
+  const store = configureStore(preloadedState);
 
   window.store          = store;
   window.SessionActions = SessionActions;

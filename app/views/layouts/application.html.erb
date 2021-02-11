@@ -9,9 +9,7 @@
     <%= javascript_include_tag 'application' %>
     <% if logged_in? %>
       <script>
-        window.currentUser = {
-          "id": <%= current_user.id %>
-        };
+        window.currentUserId = <%= current_user.id %>
       </script>
     <% end %>
   </head>
