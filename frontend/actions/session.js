@@ -14,11 +14,11 @@ const logoutCurrentUser = () => ({
 
 export const createNewUser = formUser => dispatch =>
   APIUtils.postUser(formUser)
-    .then( user => dispatch(receiveCurrentUser(user)) );
+    .then( user => dispatch(receiveCurrentUser(user.id)) );
 
 export const login = formUser => dispatch =>
-  APIUtils.postSession()
-    .then( user => dispatch(receiveCurrentUser(user)) );
+  APIUtils.postSession(formUser)
+    .then( user => dispatch(receiveCurrentUser(user.id)) );
 
 export const logout = () => dispatch =>
   APIUtils.deleteSession()
