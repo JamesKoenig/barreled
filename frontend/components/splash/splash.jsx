@@ -8,6 +8,14 @@ import   SignupForm from './signup_form_container';
 
 export default () => (
   <div id="splash-pane">
+    <header>
+      <div>
+        <p>left!</p>
+      </div>!
+      <div>
+        <p>right!</p>
+      </div>
+    </header>
     <p>splash pane!</p>
     <div id="splash-box">
       <p>splash box!</p>
