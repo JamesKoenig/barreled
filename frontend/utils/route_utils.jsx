@@ -11,8 +11,8 @@ const mSTP = state => ({
 const Either = (bool, path, Left_Component, Right_Component ) => (
   <Route path={path}
          render={ props => (
-                    bool ? (<Left_Component {...props} />)
-                         : (<Right_Component{...props} />)
+                    bool ? (<Left_Component  {...props} />)
+                         : (<Right_Component {...props} />)
                 )} />
 );
 
