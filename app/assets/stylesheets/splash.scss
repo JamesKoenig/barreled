@@ -12,12 +12,6 @@
     margin: auto;
 }
 
-.logo-char {
-    font-family: $logo-char;
-    font-size:   40px;
-    text-align:  center;
-}
-
 #splash-header > :last-child {
     padding-right: 25px;
 }
@@ -42,6 +36,19 @@
     padding: 0 20px;
 }
 
-#splash-box button {
+#splash-box * {
     width: 100%;
+    padding: 0;
+}
+
+.auth-form-container {
+    max-width: 300px;
+    max-height: 200px;
+    justify-content: center;
+}
+
+.logo-char {
+    font-family: $logo-char;
+    font-size:   40px;
+    text-align:  center;
 }
