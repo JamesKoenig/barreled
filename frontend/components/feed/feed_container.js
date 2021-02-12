@@ -1,4 +1,5 @@
+import   React     from 'react';
 import { connect } from 'react-redux';
 import   Feed      from './feed';
 
-connect(null,null)(Feed);
+export default connect(null,null)(Feed);

@@ -1,13 +1,10 @@
 import   React            from 'react';
-import { connect        } from 'react-redux';
 import   Splash           from './splash/splash_container';
-import { AuthRoute,
-         ProtectedRoute } from '../utils/route_utils';
+import   Feed             from './feed/feed_container';
+import { AuthSplitRoute } from '../utils/route_utils';
 
 export default () => (
-  <div>
-    <Splash />
-  </div>
+  <AuthSplitRoute path="/"
+                  left={Feed}
+                  right={Splash} />
 )
-
-

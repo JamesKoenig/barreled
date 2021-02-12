@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default () => (
-  <marquee>feed placeholder text!</marquee>
+  <p>feed placeholder!</p>
 )
