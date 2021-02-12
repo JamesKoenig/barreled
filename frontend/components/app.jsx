@@ -1,9 +1,13 @@
-import React  from 'react';
-import Splash from './splash/splash_container';
+import   React            from 'react';
+import { connect        } from 'react-redux';
+import   Splash           from './splash/splash_container';
+import { AuthRoute,
+         ProtectedRoute } from '../utils/route_utils';
 
-export default props => (
-  <>
+export default () => (
+  <div>
     <Splash />
-  </>
+  </div>
 )
+
 

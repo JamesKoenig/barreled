@@ -1,13 +1,19 @@
-import   React     from 'react';
-import { connect } from 'react-redux';
-import   AuthForm  from './auth_form';
+import   React           from 'react';
+import { connect       } from 'react-redux';
+import   AuthForm        from './auth_form';
+import { createNewUser } from '../../actions/session.js';
 
 const mSTP = state => ({
-  inputs: [<p>hello signup container's mSTP!</p>],
+  fields: [
+    { label: 'Email' },
+    { label: 'Password', type: "password" },
+    { label: 'Username', type: 'Username' }
+  ],
   formType: 'Sign Up'
 });
 
 const mDTP = dispatch => ({
+  action: user => dispatch(createNewUser(user))
 });
 
 export default connect(mSTP,mDTP)(AuthForm);

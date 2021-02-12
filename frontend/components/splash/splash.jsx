@@ -18,11 +18,13 @@ export default () => (
           Barreled
         </h1>
         <marquee>splash box!</marquee>
-        <Switch>
-          <Route path="/register" component={SignupForm} />
-          <Route path="/login"    component={LoginForm}  />
-          <Route path="/"         component={SignupForm} />
-        </Switch>
+        <div className="auth-form-container">
+          <Switch>
+            <Route path="/register" component={SignupForm} />
+            <Route path="/login"    component={LoginForm}  />
+            <Route path="/"         component={SignupForm} />
+          </Switch>
+        </div>
         <Link to="/login">   login</Link>
         <Link to="/register">sign up!</Link>
       </div>
