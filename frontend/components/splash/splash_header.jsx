@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 const SplashHeader = props => (
   <header id="splash-header">
     <div>
-      <p>left!</p>
+      <h1 className="logo-char">
+        B
+      </h1>
     </div>
     <div>
       <p>right!</p>

@@ -8,19 +8,23 @@ import   SignupForm   from './signup_form_container';
 import   SplashHeader from './splash_header';
 import   SplashFooter from './splash_footer';
 
-export default () => (  
+export default () => (
   <div id="splash-pane">
     <SplashHeader />
     <marquee>splash pane!</marquee>
     <div className="slide-flexer">
       <div id="splash-box">
-        <p>splash box!</p>
-        <Link to="/login">login</Link>
-        <Link to="/">sign up!</Link>
+        <h1 className="logo-char">
+          Barreled
+        </h1>
+        <marquee>splash box!</marquee>
         <Switch>
-          <Route path="/login" component={LoginForm}  />
-          <Route path="/"      component={SignupForm} />
+          <Route path="/register" component={SignupForm} />
+          <Route path="/login"    component={LoginForm}  />
+          <Route path="/"         component={SignupForm} />
         </Switch>
+        <Link to="/login">   login</Link>
+        <Link to="/register">sign up!</Link>
       </div>
       <SplashFooter />
     </div>

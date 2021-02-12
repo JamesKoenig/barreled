@@ -5,8 +5,20 @@
 #splash-header {
     position: fixed;
     width: 100%;
+    max-width: 1795px;
     display: flex;
     justify-content: space-between;
+    right: 0;
+    margin: auto;
+}
+
+.logo-char {
+    font-family: $logo-char;
+    font-size:   40px;
+}
+
+#splash-header > :last-child {
+    padding-right: 25px;
 }
 
 .slide-flexer {
@@ -19,7 +31,16 @@
 }
 
 #splash-footer {
-    width: 95%;
+    justify-content: space-between;
+    width: 100%;
     position: absolute;
-    bottom: 1%;
+    bottom: 1.5%;
+}
+
+#splash-footer * {
+    padding: 0 20px;
+}
+
+#splash-box button {
+    width: 100%;
 }
