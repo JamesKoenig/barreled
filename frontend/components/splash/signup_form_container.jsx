@@ -7,7 +7,7 @@ const mSTP = state => ({
   fields: [
     { label: 'Email' },
     { label: 'Password', type: "password" },
-    { label: 'Username', type: 'Username' }
+    { label: 'Username' }
   ],
   formType: 'Sign Up'
 });

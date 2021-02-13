@@ -1,7 +1,7 @@
 import   React     from 'react';
 import { connect } from 'react-redux';
 
-const SplashHeader = props => (
+const SplashHeader = ({ navs }) => (
   <header id="splash-header">
     <div>
       <h1 className="logo-char">
@@ -9,7 +9,7 @@ const SplashHeader = props => (
       </h1>
     </div>
     <div>
-      <p>right!</p>
+      {navs}
     </div>
   </header>
 )

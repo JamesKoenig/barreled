@@ -20,7 +20,7 @@ class AuthForm extends React.Component {
   }
 
   _mapPropsToFields(props) {
-    return props.fields.map( ({ label, type }) => 
+    return props.fields.map( ({ label, type }) =>
       this._renderField(label,type) 
     );
   }
@@ -31,11 +31,11 @@ class AuthForm extends React.Component {
 
   _renderField(label, type='text') {
     return (
-      <label key={label}>{label}
-        <input type={type}
-               value={this.state.label}
-               onChange={this._update(label)} />
-      </label>
+      <input key={label}
+             type={type}
+             placeholder={label}
+             value={this.state.label}
+             onChange={this._update(label)} />
     )
   };
 

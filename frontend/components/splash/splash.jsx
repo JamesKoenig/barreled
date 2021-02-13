@@ -1,34 +1,31 @@
-import   React      from 'react';
+import   React        from 'react';
 import { Route,
-         Switch,
-         Link   }   from 'react-router-dom';
+         useLocation,
+         Link,
+         Switch     } from 'react-router-dom';
 
-import   LoginForm    from './login_form_container';
-import   SignupForm   from './signup_form_container';
-import   SplashHeader from './splash_header';
-import   SplashFooter from './splash_footer';
+import   SplashPane   from './splash_pane_container';
 
-export default () => (
-  <div id="splash-pane">
-    <SplashHeader />
-    <marquee>splash pane!</marquee>
-    <div className="slide-flexer">
-      <div id="splash-box">
-        <h1 className="logo-char">
-          Barreled
-        </h1>
-        <marquee>splash box!</marquee>
-        <div className="auth-form-container">
-          <Switch>
-            <Route path="/register" component={SignupForm} />
-            <Route path="/login"    component={LoginForm}  />
-            <Route path="/"         component={SignupForm} />
-          </Switch>
-        </div>
-        <Link to="/login">   login</Link>
-        <Link to="/register">sign up!</Link>
-      </div>
-      <SplashFooter />
-    </div>
-  </div>
-)
+const LANDING  = "/"
+const LOGIN    = "/login";
+const REGISTER = "/register";
+
+export default () => {
+  const path = useLocation().pathname;
+  let params = { navs: [] };
+  switch(path) {
+    case LANDING:
+      break;
+    case LOGIN:
+      params.navs = [(<Link to={REGISTER}>register!</Link>)];
+      break;
+    case REGISTER:
+      params.navs = [(<Link to={LOGIN}>login!</Link>)];
+      break;
+    default: //404
+      params.navs = [(<Link to={REGISTER}>register!</Link>), (<Link to={LOGIN}>login!</Link>)];
+  }
+  return (
+    <SplashPane path={path} {...params} />
+  );
+}
