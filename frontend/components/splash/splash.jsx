@@ -7,6 +7,7 @@ import { Route,
 import   SplashPane   from './splash_pane_container';
 import   LoginForm      from './login_form_container';
 import   SignupForm     from './signup_form_container';
+import   Landing        from './landing';
 
 const LANDING  = "/"
 const LOGIN    = "/login";
@@ -16,7 +17,7 @@ const DEFAULT  = "*";
 const cases = {
   [LANDING]: {
     navs: [],
-    AuthForm: SignupForm,
+    AuthForm: Landing,
   },
   [LOGIN]: {
     navs: [(<Link key={REGISTER} to={REGISTER}>register!</Link>)],
