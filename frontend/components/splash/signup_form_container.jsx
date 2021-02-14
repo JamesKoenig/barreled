@@ -5,7 +5,7 @@ import { createNewUser } from '../../actions/session.js';
 
 const mSTP = state => ({
   fields: [
-    { label: 'Email' },
+    { label: 'Email', type: 'email' },
     { label: 'Password', type: "password" },
     { label: 'Username' }
   ],

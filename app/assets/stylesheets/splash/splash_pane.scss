@@ -50,12 +50,11 @@ p {
 
 #splash-box * {
     width: 100%;
-    padding: 0;
-    height: 45px;
 }
 
 .logo-char {
     font-family: $logo-char;
     font-size:   40px;
     text-align:  center;
+    font-weight: bold;
 }

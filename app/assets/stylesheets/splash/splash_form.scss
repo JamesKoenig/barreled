@@ -3,6 +3,28 @@
     justify-content: center;
 }
 
+#splash-box .logo-char {
+    font-size: 60px;
+}
+
+.input-container {
+    border-top: 1px solid #e3e3e3;
+    background: #fff;
+    display: flex;
+    height: 45px;
+}
+
+.input-container:first-child {
+    border-top: none;
+}
+
+.input-container input {
+    box-sizing: border-box;
+    background: none;
+    font: 16px Helvetica, Arial, sans-serif;
+    border: 0;
+}
+
 .auth-form-container button {
     height: 45px;
     font-size: 16px;
@@ -21,20 +43,4 @@
 .auth-form-container button.dark {
     color: #444;
     background-color: #fff;
-}
-
-.input-container {
-    border-top: 1px solid #e3e3e3;
-    background: #fff;
-}
-
-.input-container:first-child {
-    border-top: none;
-}
-
-.input-container input {
-    margin: 0;
-    box-sizing: border-box;
-    background: none;
-    font: 16px Helvetica, Arial, sans-serif;
 }
