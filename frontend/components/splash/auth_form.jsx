@@ -31,9 +31,9 @@ class AuthForm extends React.Component {
 
   _renderField(label, type='text') {
     return (
-      <div className="input-container">
-        <input key={label}
-               type={type}
+      <div key={label}
+           className="input-container">
+        <input type={type}
                placeholder={label}
                value={this.state.label}
                onChange={this._update(label)} />
