@@ -1,5 +1,8 @@
 import React from 'react';
 
-export default () => (
-  <p>feed placeholder!</p>
+export default ({ logout }) => (
+  <>
+    <p>feed placeholder!</p>
+    <button onClick={() => logout()}>logout</button>
+  </>
 )
