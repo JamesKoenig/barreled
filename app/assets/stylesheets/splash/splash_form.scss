@@ -1,0 +1,40 @@
+.auth-form-container {
+    max-height: 200px;
+    justify-content: center;
+}
+
+.auth-form-container button {
+    height: 45px;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    border: none;
+    margin: 12px 0 0 0;
+    padding: 0;
+}
+
+.auth-form-container button.blue {
+    border-color: #00b8ff;
+    background: #00b8ff;
+    color: #fff;
+}
+.auth-form-container button.dark {
+    color: #444;
+    background-color: #fff;
+}
+
+.input-container {
+    border-top: 1px solid #e3e3e3;
+    background: #fff;
+}
+
+.input-container:first-child {
+    border-top: none;
+}
+
+.input-container input {
+    margin: 0;
+    box-sizing: border-box;
+    background: none;
+    font: 16px Helvetica, Arial, sans-serif;
+}

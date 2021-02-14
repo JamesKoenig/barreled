@@ -31,11 +31,13 @@ class AuthForm extends React.Component {
 
   _renderField(label, type='text') {
     return (
-      <input key={label}
-             type={type}
-             placeholder={label}
-             value={this.state.label}
-             onChange={this._update(label)} />
+      <div className="input-container">
+        <input key={label}
+               type={type}
+               placeholder={label}
+               value={this.state.label}
+               onChange={this._update(label)} />
+      </div>
     )
   };
 
@@ -43,7 +45,8 @@ class AuthForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         {this.fields}
-        <button type='submit'>{this.props.formType}</button> 
+        <button className="blue"
+                type='submit'>{this.props.formType}</button> 
       </form>
     )
   }

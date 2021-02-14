@@ -1,5 +1,11 @@
 #splash-pane {
     display: flex;
+    color: #fff;
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
 }
 
 #splash-header {
@@ -21,6 +27,7 @@
     display: flex;
     width: 100%;
     height: 100%;
+    background-color: #001935;
     align-items: center;
     justify-content: space-around;
 }
@@ -34,17 +41,17 @@
 
 #splash-footer * {
     padding: 0 20px;
+    text-align: left;
+}
+
+#splash-box {
+    width: 300px;
 }
 
 #splash-box * {
     width: 100%;
     padding: 0;
-}
-
-.auth-form-container {
-    max-width: 300px;
-    max-height: 200px;
-    justify-content: center;
+    height: 45px;
 }
 
 .logo-char {
