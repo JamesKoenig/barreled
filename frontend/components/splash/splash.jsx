@@ -19,7 +19,7 @@ const cases = {
     AuthForm: SignupForm,
   },
   [LOGIN]: {
-    navs:         [(<Link key={REGISTER} to={REGISTER}>register!</Link>)],
+    navs: [(<Link key={REGISTER} to={REGISTER}>register!</Link>)],
     AuthForm: LoginForm,
   },
   [REGISTER]: {
@@ -29,18 +29,11 @@ const cases = {
   [DEFAULT]: {
     navs: [(<Link key={REGISTER} to={REGISTER}>register!</Link>),
            (<Link key={LOGIN}    to={LOGIN}>      login!</Link>)],
-    SplashBox: () => (
-      <div id="splash-box">
-        <h1 className="logo-char">
-          There's nothing here.
-        </h1>
-        <div className="auth-form-container">
+    splashText: "There's nothing here.",
+    AuthForm: () => (
           <p>Whatever you were looking for doesn't currently exist at this
              address, unless you were looking for this error page, in which
-             case: congrats! you totally found it.</p>
-        </div>
-      </div>
-    ),
+             case: congrats! you totally found it.</p>)
   }
 }
 

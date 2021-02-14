@@ -7,21 +7,19 @@ import { Route,
 import   SplashHeader   from './splash_header';
 import   SplashFooter   from './splash_footer';
 
-export default ({ navs, AuthForm, SplashBox }) => (
+export default ({ navs, AuthForm, splashText }) => (
   <div id="splash-pane">
     <marquee>splash pane!</marquee>
     <div className="slide-flexer">
-      {
-        SplashBox ? <SplashBox /> :
-      (
         <div id="splash-box">
           <h1 className="logo-char">
-            Barreled
+            { splashText || "Barreled" }
           </h1>
           <marquee>splash box!</marquee>
-          <AuthForm />
+          <div className="auth-form-container">
+            <AuthForm />
+          </div>
         </div>
-      )}
       <SplashHeader navs={navs} />
       <SplashFooter />
     </div>
