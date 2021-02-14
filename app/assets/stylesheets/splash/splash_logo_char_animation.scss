@@ -1,0 +1,17 @@
+@keyframes rainbow {
+    0%     {background-color:red;   }
+    14.29% {background-color:orange;}
+    28.57% {background-color:yellow;}
+    42.86% {background-color:green; }
+    57.14% {background-color:blue;  }
+    71.43% {background-color:indigo;}
+    85.71% {background-color:violet;}
+}
+
+#splash-header .logo-char:hover {
+    animation:rainbow .75s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
