@@ -14,22 +14,28 @@ const LOGIN    = "/login";
 const REGISTER = "/register";
 const DEFAULT  = "*";
 
+const NavButton = (url, label) => (
+  <Link key={url} to={url}>
+    <button>{label}</button>
+  </Link>
+);
+
 const cases = {
   [LANDING]: {
     navs: [],
     AuthForm: Landing,
   },
   [LOGIN]: {
-    navs: [(<Link key={REGISTER} to={REGISTER}>register!</Link>)],
+    navs: [NavButton(REGISTER,"Sign up")],
     AuthForm: LoginForm,
   },
   [REGISTER]: {
-    navs: [(<Link key={LOGIN} to={LOGIN}>login!</Link>)],
+    navs: [NavButton(LOGIN,"Log in")],
     AuthForm: SignupForm,
   },
   [DEFAULT]: {
-    navs: [(<Link key={REGISTER} to={REGISTER}>register!</Link>),
-           (<Link key={LOGIN}    to={LOGIN}>      login!</Link>)],
+    navs: [NavButton(REGISTER,"Sign up"),
+           NavButton(LOGIN,"Log in")],
     splashText: "There's nothing here.",
     AuthForm: () => (
           <p>Whatever you were looking for doesn't currently exist at this
