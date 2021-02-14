@@ -5,27 +5,49 @@ import { Route,
          Switch     } from 'react-router-dom';
 
 import   SplashPane   from './splash_pane_container';
+import   LoginForm      from './login_form_container';
+import   SignupForm     from './signup_form_container';
 
 const LANDING  = "/"
 const LOGIN    = "/login";
 const REGISTER = "/register";
+const DEFAULT  = "*";
+
+const cases = {
+  [LANDING]: {
+    navs: [],
+    AuthForm: SignupForm,
+  },
+  [LOGIN]: {
+    navs:         [(<Link key={REGISTER} to={REGISTER}>register!</Link>)],
+    AuthForm: LoginForm,
+  },
+  [REGISTER]: {
+    navs: [(<Link key={LOGIN} to={LOGIN}>login!</Link>)],
+    AuthForm: SignupForm,
+  },
+  [DEFAULT]: {
+    navs: [(<Link key={REGISTER} to={REGISTER}>register!</Link>),
+           (<Link key={LOGIN}    to={LOGIN}>      login!</Link>)],
+    SplashBox: () => (
+      <div id="splash-box">
+        <h1 className="logo-char">
+          There's nothing here.
+        </h1>
+        <div className="auth-form-container">
+          <p>Whatever you were looking for doesn't currently exist at this
+             address, unless you were looking for this error page, in which
+             case: congrats! you totally found it.</p>
+        </div>
+      </div>
+    ),
+  }
+}
 
 export default () => {
-  const path = useLocation().pathname;
-  let params = { navs: [] };
-  switch(path) {
-    case LANDING:
-      break;
-    case LOGIN:
-      params.navs = [(<Link to={REGISTER}>register!</Link>)];
-      break;
-    case REGISTER:
-      params.navs = [(<Link to={LOGIN}>login!</Link>)];
-      break;
-    default: //404
-      params.navs = [(<Link to={REGISTER}>register!</Link>), (<Link to={LOGIN}>login!</Link>)];
-  }
+  let path = useLocation().pathname;
+  path = Object.keys(cases).includes(path) ? path : DEFAULT;
   return (
-    <SplashPane path={path} {...params} />
+    <SplashPane {...cases[path]} />
   );
 }
