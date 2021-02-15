@@ -16,7 +16,7 @@ const DEFAULT  = "*";
 
 const NavButton = (url, label) => (
   <Link key={url} to={url}>
-    <button class="header-link">{label}</button>
+    <button className="header-link">{label}</button>
   </Link>
 );
 
