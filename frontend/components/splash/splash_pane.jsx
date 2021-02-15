@@ -6,6 +6,7 @@ import { Route,
 
 import   SplashHeader   from './splash_header';
 import   SplashFooter   from './splash_footer';
+import   DemoLoginner   from './demo_login_container';
 
 export default ({ navs, AuthForm, splashText }) => (
   <div id="splash-pane">
@@ -19,6 +20,7 @@ export default ({ navs, AuthForm, splashText }) => (
           <div className="auth-form-container">
             <AuthForm />
           </div>
+          <DemoLoginner />
         </div>
       <SplashHeader navs={navs} />
       <SplashFooter />
