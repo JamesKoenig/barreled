@@ -16,6 +16,29 @@ p {
     justify-content: space-between;
     top: 0;
     margin: auto;
+    margin-top: 10px;
+}
+
+#splash-header .header-link {
+    padding: 5px 13px;
+    height: 32px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 0;
+}
+
+[href*="login"] .header-link {
+    background-color: rgba(0,0,0,.09);
+    color: #fff;
+}
+
+[href*="register"] .header-link {
+    background-color: #fff;
+    color: #444;
+}
+
+#splash-header > :first-child {
+    padding-left: 20px;
 }
 
 #splash-header > :last-child {
