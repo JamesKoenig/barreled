@@ -1,10 +1,10 @@
-import   React        from 'react';
+import   React          from 'react';
 import { Route,
          useLocation,
          Link,
-         Switch     } from 'react-router-dom';
+         Redirect     } from 'react-router-dom';
 
-import   SplashPane   from './splash_pane_container';
+import   SplashPane     from './splash_pane_container';
 import   LoginForm      from './login_form_container';
 import   SignupForm     from './signup_form_container';
 import   Landing        from './landing';
@@ -12,7 +12,7 @@ import   Landing        from './landing';
 const LANDING  = "/"
 const LOGIN    = "/login";
 const REGISTER = "/register";
-const DEFAULT  = "*";
+const DEFAULT  = "/404";
 
 const NavButton = (url, label) => (
   <Link key={url} to={url}>
@@ -46,8 +46,11 @@ const cases = {
 
 export default () => {
   let path = useLocation().pathname;
-  path = Object.keys(cases).includes(path) ? path : DEFAULT;
-  return (
-    <SplashPane {...cases[path]} />
-  );
+  if(!Object.keys(cases).includes(path)) {
+    return (<Redirect to={DEFAULT} />);
+  } else {
+    return (
+      <SplashPane {...cases[path]} />
+    );
+  }
 }
