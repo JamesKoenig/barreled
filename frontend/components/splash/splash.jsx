@@ -34,8 +34,8 @@ const cases = {
     AuthForm: SignupForm,
   },
   [DEFAULT]: {
-    navs: [NavButton(REGISTER,"Sign up"),
-           NavButton(LOGIN,"Log in")],
+    navs: [ NavButton(LOGIN,"Log in"),
+            NavButton(REGISTER,"Sign up") ],
     splashText: "There's nothing here.",
     AuthForm: () => (
           <p>Whatever you were looking for doesn't currently exist at this
