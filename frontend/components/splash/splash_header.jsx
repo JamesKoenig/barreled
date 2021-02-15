@@ -1,13 +1,14 @@
 import   React     from 'react';
 import { connect } from 'react-redux';
+import { Link    } from 'react-router-dom';
 
 const SplashHeader = ({ navs }) => (
   <header id="splash-header">
-    <div>
+    <Link to="/">
       <h1 className="logo-char">
         B
       </h1>
-    </div>
+    </Link>
     <div>
       {navs}
     </div>
