@@ -10,7 +10,10 @@ const demoUser = {
 };
 
 const mDTP = dispatch => ({
-  loginDemoUser: () => dispatch(login(demoUser))
+  loginDemoUser: e => {
+    e.preventDefault();
+    dispatch(login(demoUser));
+  }
 });
 
 export default connect(null, mDTP)(DemoLogin);
