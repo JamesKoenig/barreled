@@ -1,7 +1,8 @@
 import   React           from 'react';
 import { connect       } from 'react-redux';
 import   AuthForm        from './auth_form';
-import { createNewUser } from '../../actions/session.js';
+import { createNewUser,
+         clearErrs     } from '../../actions/session.js';
 
 const mSTP = state => ({
   fields: [
@@ -13,7 +14,8 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-  action: user => dispatch(createNewUser(user))
+  action: user => dispatch(createNewUser(user)),
+  clearErrors: () => dispatch(clearErrs())
 });
 
 export default connect(mSTP,mDTP)(AuthForm);

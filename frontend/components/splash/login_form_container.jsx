@@ -1,7 +1,8 @@
 import   React     from 'react';
 import { connect } from 'react-redux';
 import   AuthForm  from './auth_form';
-import { login   } from '../../actions/session.js';
+import { login,
+         clearErrs } from '../../actions/session.js';
 
 const mSTP = state => ({
   fields: [
@@ -11,8 +12,9 @@ const mSTP = state => ({
   formType: 'Sign In'
 })
 
-const mDTP = dispatch => ({
-  action: user => dispatch(login(user))
+export const mDTP = dispatch => ({
+  action: user => dispatch(login(user)),
+  clearErrors: () => dispatch(clearErrs())
 });
 
 export default connect(mSTP,mDTP)(AuthForm);
