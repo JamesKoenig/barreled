@@ -1,5 +1,6 @@
 import   React          from 'react';
 import { Route,
+         Switch,
          useLocation,
          Link,
          Redirect     } from 'react-router-dom';
@@ -44,13 +45,11 @@ const cases = {
   }
 }
 
-export default () => {
-  let path = useLocation().pathname;
-  if(!Object.keys(cases).includes(path)) {
-    return (<Redirect to={DEFAULT} />);
-  } else {
-    return (
-      <SplashPane {...cases[path]} />
-    );
-  }
-}
+export default ({ location }) => (
+  <Switch>
+    <Route exact path={Object.keys(cases)}>
+      <SplashPane {...cases[location.pathname]} />
+    </Route>
+    <Redirect to={DEFAULT} />
+  </Switch>
+)
