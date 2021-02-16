@@ -4,7 +4,6 @@ import   Feed             from './feed/feed_container';
 import { AuthSplitRoute } from '../utils/route_utils';
 
 export default () => (
-  <AuthSplitRoute path="*"
-                  left={Feed}
+  <AuthSplitRoute left={Feed}
                   right={Splash} />
 )
