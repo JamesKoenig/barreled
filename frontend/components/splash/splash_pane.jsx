@@ -12,7 +12,7 @@ export default ({ navs, AuthForm, splashText }) => (
   <div id="splash-pane">
     <marquee>splash pane!</marquee>
     <div className="slide-flexer">
-        <div id="splash-box">
+        <div className="splash-box">
           <h1 className="logo-char">
             { splashText || "Barreled" }
           </h1>
