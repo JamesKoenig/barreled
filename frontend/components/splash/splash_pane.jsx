@@ -16,7 +16,6 @@ export default ({ navs, AuthForm, splashText }) => (
           <h1 className="logo-char">
             { splashText || "Barreled" }
           </h1>
-          <marquee>splash box!</marquee>
           <div className="auth-form-container">
             <AuthForm />
           </div>
