@@ -1,0 +1,27 @@
+#error-box {
+    position: absolute;
+    overflow: hidden;
+    left: 300px;
+    margin-left: 15px;
+    width: max-content;
+}
+
+#error-box li {
+    border-radius: 2px;
+    padding: 5px 12px;
+    background-color: rgba(0,0,0,30%);
+    margin-bottom: 2px;
+    height: auto;
+    width: auto;
+    z-index: -1;
+    animation: slide .25s ease-out;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

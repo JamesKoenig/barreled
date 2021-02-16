@@ -1,4 +1,5 @@
-import React from 'react';
+import React      from 'react';
+import AuthErrors from './auth_errors_container';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class AuthForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <AuthErrors />
         {this.fields}
         <button className="blue"
                 type='submit'>{this.props.formType}</button> 
