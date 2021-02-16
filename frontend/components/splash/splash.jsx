@@ -11,7 +11,7 @@ import   Landing        from './landing';
 
 const LANDING  = "/"
 const LOGIN    = "/login";
-const REGISTER = "/register";
+const REGISTER = "/signup";
 const DEFAULT  = "/404";
 
 const NavButton = (url, label) => (

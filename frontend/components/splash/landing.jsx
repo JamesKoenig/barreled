@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default () => (
   <div>
-    <Link to="/register">
+    <Link to="/signup">
       <button className="blue">Get Started</button>
     </Link>
     <Link to="/login">
