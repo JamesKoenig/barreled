@@ -13,12 +13,12 @@ class PostDisplay extends React.Component {
       return null;
     } else {
       return (
-        <div id="post-placeholder-container">
-          <div className="bouncer">
-            <div id="post-placeholder">
-              <h1>{author.username}:</h1>
-              <p>{post.body}</p>
-            </div>
+        <div className="post_display">
+          <span className="author-container">
+            <h3 className="author-name">{author.username}</h3>
+          </span>
+          <div className="post-content">
+            <p className="post-text">{post.body}</p>
           </div>
         </div>
       );
