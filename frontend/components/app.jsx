@@ -4,7 +4,7 @@ import   Feed             from './feed/feed_container';
 import { AuthSplitRoute } from '../utils/route_utils';
 import { Switch,
          Route          } from 'react-router'
-import PostShow from './posts/show';
+import PostShow from './posts/show_container';
 
 export default () => (
   <Switch>
