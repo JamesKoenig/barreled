@@ -1,7 +1,8 @@
 json.posts do
   json.set! @post.id do
-    json.extract! @post, :id, :body, :author_id
-    json.date @post.created_at
+    json.extract! @post, :id, :body
+    json.authorId @post.author_id
+    json.dateTime @post.created_at
   end
 end
 
