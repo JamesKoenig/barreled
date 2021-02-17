@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default () => (
-  <h1>placeholder!!!</h1>
+  <div id="post-placeholder-container">
+    <div className="bouncer">
+      <h1 id="post-placeholder">placeholder!!!</h1>
+    </div>
+  </div>
 );
