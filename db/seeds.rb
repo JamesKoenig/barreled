@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: "demoUser",
-            email: "demo@demo.demo",
-            password: "demoUser");
+user = User.new(username: "demoUser",
+                email: "demo@demo.demo",
+                password: "demoUser");
 
+user.save!
+
+post = Post.new(body: "hello friends!", author_id: user.id)
+post.save!
