@@ -1,29 +1,10 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 
-class PostShow extends React.Component {
+import PostDisplay from './post_display_container';
 
-  componentDidMount() {
-    this.props.getPost(this.props.postId);
-  }
-
-  render() {
-    const { post, author } = this.props;
-    if (!post || !author) {
-      return null;
-    } else {
-      return (
-        <div id="post-placeholder-container">
-          <div className="bouncer">
-            <div id="post-placeholder">
-              <h1>{author.username}:</h1>
-              <p>{post.body}</p>
-            </div>
-          </div>
-        </div>
-      );
-    }
-  }
-}
-
-export default PostShow
+export default () => (
+  <div>
+    <h1>outside postDisplay!</h1>
+    <PostDisplay />
+  </div>
+)

@@ -1,5 +1,5 @@
 import { connect }    from 'react-redux';
-import   Show         from './show';
+import  PostDisplay   from './post_display';
 import { withRouter } from 'react-router';
 
 import { getPost }  from '../../actions/posts';
@@ -17,4 +17,4 @@ const mDTP = dispatch => ({
 })
 
 
-export default withRouter(connect(mSTP,mDTP)(Show));
+export default withRouter(connect(mSTP,mDTP)(PostDisplay));
