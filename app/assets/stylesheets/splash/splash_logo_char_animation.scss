@@ -9,7 +9,7 @@
     100%   {background-color:red;   }
 }
 
-#splash-header .logo-char:hover {
+.logo-char-animation:hover {
     animation:rainbow 1s linear infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

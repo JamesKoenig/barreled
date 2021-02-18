@@ -5,7 +5,7 @@ import { Link    } from 'react-router-dom';
 const SplashHeader = ({ navs }) => (
   <header id="splash-header">
     <Link to="/">
-      <h1 className="logo-char">
+      <h1 className="logo-char logo-char-animation">
         B
       </h1>
     </Link>
