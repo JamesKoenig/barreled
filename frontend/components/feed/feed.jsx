@@ -6,8 +6,9 @@ import { Switch,
 export default ({ logout }) => (
   <Switch>
     <Route exact path="/">
-      <p>feed placeholder!</p>
-      <button onClick={() => logout()}>logout</button>
+      <div id="feed">
+        <button onClick={() => logout()}>logout</button>
+      </div>
     </Route>
     <Route path="*">
       <Redirect to="/" />
