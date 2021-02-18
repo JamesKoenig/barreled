@@ -4,7 +4,7 @@ import { Route,
          Link,
          useLocation } from 'react-router-dom';
 
-import   SplashHeader   from './splash_header';
+import   Header from '../header/header';
 import   SplashFooter   from './splash_footer';
 import   DemoLoginner   from './demo_login_container';
 
@@ -20,7 +20,7 @@ export default ({ navs, AuthForm, splashText }) => (
           </div>
           <DemoLoginner />
         </div>
-      <SplashHeader navs={navs} />
+      <Header navs={navs} />
       <SplashFooter />
     </div>
   </div>
