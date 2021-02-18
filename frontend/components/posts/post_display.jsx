@@ -13,10 +13,10 @@ class PostDisplay extends React.Component {
       return null;
     } else {
       return (
-        <div className="post_display">
-          <span className="author-container">
+        <div className="post-display">
+          <div className="author-container">
             <h3 className="author-name">{author.username}</h3>
-          </span>
+          </div>
           <div className="post-content">
             <p className="post-text">{post.body}</p>
           </div>
