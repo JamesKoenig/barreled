@@ -10,10 +10,8 @@ import   LoginForm      from './login_form_container';
 import   SignupForm     from './signup_form_container';
 import   Landing        from './landing';
 
-const LANDING  = "/"
-const LOGIN    = "/login";
-const REGISTER = "/signup";
-const DEFAULT  = "/404";
+import { LANDING, LOGIN,
+         REGISTER, DEFAULT } from '../../utils/paths/session';
 
 const NavButton = (url, label) => (
   <Link key={url} to={url}>

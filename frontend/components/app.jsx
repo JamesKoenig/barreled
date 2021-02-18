@@ -5,10 +5,11 @@ import { AuthSplitRoute } from '../utils/route_utils';
 import { Switch,
          Route          } from 'react-router'
 import PostShow from './posts/show';
+import * as postUrls from '../utils/paths/posts';
 
 export default () => (
   <Switch>
-    <Route exact path="/posts/:postId"
+    <Route exact path={Object.values(postUrls)}
                  component={PostShow} />
     <AuthSplitRoute left={Feed}
                     right={Splash} />
