@@ -10,7 +10,6 @@ import   DemoLoginner   from './demo_login_container';
 
 export default ({ navs, AuthForm, splashText }) => (
   <div id="splash-pane">
-    <marquee>splash pane!</marquee>
     <div className="slide-flexer">
         <div className="splash-box">
           <h1 className="logo-char">
