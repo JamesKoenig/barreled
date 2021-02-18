@@ -1,5 +1,7 @@
+$post-border: .5px groove rgba(128,128,128,30%);
+
 .author-container {
-    border-bottom: .5px groove rgba(128,128,128,30%);
+    border-bottom: $post-border;
 }
 
 .author-name {
@@ -11,4 +13,18 @@
 .post-content {
     padding: 30px;
     padding-top: 15px;
+}
+
+.post-properties {
+    border-top: $post-border;
+    padding: 8px;
+    margin-left: 3px;
+}
+
+.post-show-side {
+    background-image: linear-gradient(to left, $base-bg, rgba(0,0,0,20%));
+}
+
+.post-show-side:last-child {
+    background-image: linear-gradient(to right, $base-bg, rgba(0,0,0,20%));
 }

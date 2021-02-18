@@ -4,8 +4,10 @@ import PostDisplay from './post_display_container';
 
 export default () => (
   <div id="post-show">
+    <div className="post-show-side"></div>
     <div className="post-show-centerize">
-      <PostDisplay />
+        <PostDisplay />
     </div>
+    <div className="post-show-side"></div>
   </div>
 )
