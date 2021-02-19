@@ -8,7 +8,7 @@ import   Header from '../header/header';
 import   SplashFooter   from './splash_footer';
 import   DemoLoginner   from './demo_login_container';
 
-export default ({ navs, AuthForm, splashText }) => (
+export default ({ AuthForm, splashText }) => (
   <div id="splash-pane">
     <div className="slide-flexer">
         <div className="splash-box">
@@ -20,7 +20,6 @@ export default ({ navs, AuthForm, splashText }) => (
           </div>
           <DemoLoginner />
         </div>
-      <Header navs={navs} />
       <SplashFooter />
     </div>
   </div>

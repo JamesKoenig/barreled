@@ -21,20 +21,15 @@ const NavButton = (url, label) => (
 
 const cases = {
   [LANDING]: {
-    navs: [],
     AuthForm: Landing,
   },
   [LOGIN]: {
-    navs: [NavButton(REGISTER,"Sign up")],
     AuthForm: LoginForm,
   },
   [REGISTER]: {
-    navs: [NavButton(LOGIN,"Log in")],
     AuthForm: SignupForm,
   },
   [DEFAULT]: {
-    navs: [ NavButton(LOGIN,"Log in"),
-            NavButton(REGISTER,"Sign up") ],
     splashText: "There's nothing here.",
     AuthForm: () => (
           <p>Whatever you were looking for doesn't currently exist at this
@@ -46,7 +41,7 @@ const cases = {
 export default ({ location }) => (
   <Switch>
     <Route exact path={Object.keys(cases)}>
-      <SplashPane {...cases[location.pathname]} />
+      <SplashPane {...cases[useLocation().pathname]} />
     </Route>
     <Redirect to={DEFAULT} />
   </Switch>

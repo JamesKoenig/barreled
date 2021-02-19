@@ -1,10 +1,12 @@
-#header {
+#header-container {
     position: fixed;
+    top: 0;
     width: 100%;
+}
+#header {
     max-width: 1580px;
     display: flex;
     justify-content: space-between;
-    top: 0;
     margin: auto;
     margin-top: 10px;
 }
