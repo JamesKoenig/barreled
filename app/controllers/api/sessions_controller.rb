@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render :show
     else
-      render json: ["invalid email or password"], status: 401
+      render json: ["Invalid email or password"], status: 401
     end
   end
 
@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
       @user = current_user
       render :show
     else
-      render json: ["no current user"], status: 404
+      render json: ["No current user"], status: 404
     end
   end
 
@@ -27,7 +27,7 @@ class Api::SessionsController < ApplicationController
     if logged_in?
       logout!
     else
-      render json: ["cannot log out: not logged in"], status: 403
+      render json: ["Cannot log out: not logged in"], status: 403
     end
   end
 end

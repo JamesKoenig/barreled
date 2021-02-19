@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
       logout!
       user.destroy
     else
-      render json:   ['not logged in or attempted to delete another user'],
+      render json:   ['Not logged in or attempted to delete another user'],
              status: 403 # status 403: forbidden
     end
   end
