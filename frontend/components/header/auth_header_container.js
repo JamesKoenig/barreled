@@ -1,7 +1,7 @@
 import { withRouter } from 'react-router-dom';
 import { connect    } from 'react-redux';
 
-import   Header from './header';
+import   Header from './base_header';
 import { LANDING, LOGIN,
          REGISTER, DEFAULT } from '../../utils/paths/session';
 

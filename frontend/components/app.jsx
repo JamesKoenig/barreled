@@ -6,7 +6,7 @@ import { Switch,
          Route          } from 'react-router'
 import PostShow from './posts/show';
 import * as postUrls from '../utils/paths/posts';
-import Header from './header/header_container';
+import Header from './header/header';
 
 export default () => (
   <>

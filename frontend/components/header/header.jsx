@@ -1,27 +1,10 @@
-import   React     from 'react';
-import { connect } from 'react-redux';
-import { Link    } from 'react-router-dom';
+import React from 'react';
+import { AuthSplitRoute } from '../../utils/route_utils';
 
-import { LANDING, LOGIN,
-         REGISTER, DEFAULT } from '../../utils/paths/session';
+import   AuthHeader  from './auth_header_container';
+import   UserHeader  from './user_header_container';
 
-const NavButton = (url, label) => (
-  <Link key={url} to={url}>
-    <button className="header-link">{label}</button>
-  </Link>
+export default () => (
+  <AuthSplitRoute left={UserHeader} 
+                  right={AuthHeader} />
 );
-
-export default ({ navs }) => (
-  <div id="header-container">
-    <header id="header">
-      <Link to="/">
-        <h1 className="logo-char logo-char-animation">
-          B
-        </h1>
-      </Link>
-      <div>
-        {navs.map( ([path,text]) => NavButton(path,text) )}
-      </div>
-    </header>
-  </div>
-)
