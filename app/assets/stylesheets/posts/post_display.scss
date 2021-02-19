@@ -22,6 +22,10 @@ $post-border: .5px groove rgba(128,128,128,30%);
 }
 
 .post-show-side {
+    width: 300px;
+}
+
+.post-show-side {
     background-image: linear-gradient(to left, $base-bg, rgba(0,0,0,20%));
 }
 
