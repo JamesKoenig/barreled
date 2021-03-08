@@ -1,7 +1,7 @@
 import {
   OPEN_MODAL,
   CLOSE_MODAL,
-} FROM "../actions/modal";
+} from "../actions/modal";
 
 export default (state=null, action) => {
   switch(action.type) {
@@ -11,4 +11,5 @@ export default (state=null, action) => {
       return action.modal;
     default:
       return state;
+  }
 }
