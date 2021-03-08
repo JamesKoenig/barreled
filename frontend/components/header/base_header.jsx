@@ -1,6 +1,7 @@
 import   React     from 'react';
 import { connect } from 'react-redux';
 import { Link    } from 'react-router-dom';
+import   Modal     from '../modal/modal_container';
 
 import { LANDING, LOGIN,
          REGISTER, DEFAULT } from '../../utils/paths/session';
@@ -13,6 +14,7 @@ const NavButton = (url, label) => (
 
 export default ({ navs=[] }) => (
   <div id="header-container">
+    <Modal />
     <header id="header">
       <Link to="/">
         <h1 className="logo-char logo-char-animation">

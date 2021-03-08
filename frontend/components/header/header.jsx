@@ -5,6 +5,6 @@ import   AuthHeader  from './auth_header_container';
 import   UserHeader  from './user_header_container';
 
 export default () => (
-  <AuthSplitRoute left={UserHeader} 
+  <AuthSplitRoute left={UserHeader}
                   right={AuthHeader} />
 );

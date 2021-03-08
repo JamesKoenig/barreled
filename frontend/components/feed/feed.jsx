@@ -4,14 +4,16 @@ import { Switch,
          Redirect } from 'react-router-dom';
 
 export default ({ logout }) => (
-  <Switch>
-    <Route exact path="/">
+  <>
+    <Route path="/">
       <div id="feed">
         <button onClick={() => logout()}>logout</button>
       </div>
     </Route>
-    <Route path="*">
-      <Redirect to="/" />
-    </Route>
-  </Switch>
+    <Switch>
+      <Route path="*">
+        <Redirect to="/" />
+      </Route>
+    </Switch>
+  </>
 )
