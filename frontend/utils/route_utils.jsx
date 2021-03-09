@@ -1,8 +1,9 @@
 import   React        from 'react';
 import { connect }    from 'react-redux';
-import { Redirect,
-         Route,
-         withRouter } from 'react-router-dom';
+import {
+  Redirect,
+  Route,
+} from 'react-router-dom';
 
 const mSTP = state => ({
   loggedIn: Boolean(state.session.currentUserId),
@@ -28,11 +29,11 @@ const Auth = ({ loggedIn, path, component: Component }) =>
 const Protected = props =>
   Auth( Object.assign({},props,{ loggedIn: !props.loggedIn }) );
 
-export const EitherRoute    = withRouter( ({ bool, path, Left, Right }) =>
-                                                 Either(bool,path,Left,Right));
+export const EitherRoute    = ({ bool, path, Left, Right }) =>
+                                                 Either(bool,path,Left,Right);
 
-export const AuthSplitRoute = withRouter(connect(mSTP)(AuthSplit));
+export const AuthSplitRoute = connect(mSTP)(AuthSplit);
 
-export const AuthRoute      = withRouter(connect(mSTP)(Auth));
+export const AuthRoute      = connect(mSTP)(Auth);
 
-export const ProtectedRoute = withRouter(connect(mSTP)(Protected));
+export const ProtectedRoute = connect(mSTP)(Protected);
