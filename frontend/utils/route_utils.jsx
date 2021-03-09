@@ -5,19 +5,22 @@ import { Redirect,
          withRouter } from 'react-router-dom';
 
 const mSTP = state => ({
-  loggedIn: Boolean(state.session.currentUserId)
+  loggedIn: Boolean(state.session.currentUserId),
 });
 
-const Either = (bool, path, Left_Component, Right_Component ) => (
+const Either = (bool, path, Left_Component, Right_Component, ownProps) => (
   <Route path={path}
-         render={ props => (
-                    bool ? (<Left_Component  {...props} />)
-                         : (<Right_Component {...props} />)
-                )} />
+         render={ props => {
+                    const Component = bool ? Left_Component : Right_Component;
+                    return (
+                     <Component {...props} {...ownProps} />
+                    );
+                }} />
 );
 
-const AuthSplit = ( { loggedIn, path, left: Left, right: Right } ) =>
-    Either(loggedIn, path, Left, Right);
+const AuthSplit = ({ loggedIn, path, left: Left, right: Right, ...rest}) => {
+  return Either(loggedIn, path, Left, Right, rest);
+}
 
 const Auth = ({ loggedIn, path, component: Component }) =>
   AuthSplit({ loggedIn, path, left: (<Redirect to="/"/>), right: Component });
