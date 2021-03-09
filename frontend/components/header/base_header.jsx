@@ -6,13 +6,21 @@ import   Modal     from '../modal/modal_container';
 import { LANDING, LOGIN,
          REGISTER, DEFAULT } from '../../utils/paths/session';
 
-const NavButton = (url, label) => (
+const NavLinkButton = (url, label) => (
   <Link key={url} to={url}>
     <button className="header-link">{label}</button>
   </Link>
 );
 
-export default ({ navs=[] }) => (
+const NavButton = (label, onClick) => (
+  <button key={label}
+          onClick={onClick}
+          className="header-link">
+    {label}
+  </button>
+);
+
+export default ({ navLinks=[], navButtons=[] }) => (
   <div id="header-container">
     <Modal />
     <header id="header">
@@ -22,8 +30,9 @@ export default ({ navs=[] }) => (
         </h1>
       </Link>
       <div>
-        {navs.map( ([path,text]) => NavButton(path,text) )}
+        {navLinks.map(   ([path,text]) => NavLinkButton(path,text) )}
+        {navButtons.map( navButtonArgs => NavButton(...navButtonArgs) ) }
       </div>
     </header>
   </div>
-)
+);

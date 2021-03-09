@@ -12,7 +12,7 @@ const authNavs = {
   "*": [ [LOGIN,"Log in"], [REGISTER,"Sign up"] ],
 };
 const mSTP = (state, { location:  { pathname } } ) => ({
-  navs: authNavs[pathname] ? authNavs[pathname] : authNavs["*"],
+  navLinks: authNavs[pathname] ? authNavs[pathname] : authNavs["*"],
 });
 
 const mDTP = dispatch => ({
