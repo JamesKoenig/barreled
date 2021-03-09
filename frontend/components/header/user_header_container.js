@@ -1,14 +1,35 @@
-import { withRouter } from 'react-router-dom';
-import { connect    } from 'react-redux';
-import { openModal  } from '../../actions/modal';
-import { logout     } from '../../actions/session';
-import   Header       from './base_header';
+import { connect   } from 'react-redux';
+import { openModal } from '../../actions/modal';
+import { logout    } from '../../actions/session';
+import   Header      from './base_header';
+
+const mSTP = ({ entities: { posts },
+                 session: { currentUserId } }) => ({
+  currentUserId,
+  posts,
+});
 
 const mDTP = dispatch => ({
   navButtons: [
     ["New Post",() => dispatch(openModal('newPost'))],
     ["Logout", () => dispatch(logout())],
   ],
+  editPost: ["Edit Post", () => dispatch( openModal("editPost") ) ],
 });
 
-export default withRouter(connect(null,mDTP)(Header));
+/* routerProps is being used in lieu of ownProps to signal their sole
+ *  origin/use */
+const mergeProps = ({ currentUserId, 
+                      posts },
+                    { navButtons,
+                       editPost },
+                    { post } )    => {
+  if(post && posts[post.params.postId]
+          && posts[post.params.postId].authorId === currentUserId ) {
+    return { navButtons: [editPost, ...navButtons] };
+  } else {
+  return { navButtons };
+  }
+}
+
+export default connect(mSTP,mDTP,mergeProps)(Header);
