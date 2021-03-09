@@ -5,7 +5,7 @@ class PostForm extends React.Component {
     super(props);
     this.state = {};
     this.state["body"] = props.body || '';
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
    _handleSubmit(event) {

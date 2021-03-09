@@ -26,13 +26,17 @@ class Modal extends React.Component {
   }
 
   render() {
-    if(!this.props.modal) return null;
+    const { Component } = this.props;
+
+    if(!Component)
+      return null;
+
     return (
       <div id="modal-background"
            onClick={this.onClick} >
         <div className="modal"
              onClick={event => event.stopPropagation()}>
-          <p>hello modal!</p>
+          <Component />
         </div>
       </div>
     );
