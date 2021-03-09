@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
-import   PostForm  from 'post-form';
-im
+import   PostForm  from './post_form';
 
 const mSTP = (state,routerProps) => ({
   body: state.posts[routerProps.match.params.postId],
   fromType: 'Edit Post'
 })
 
-iconst mDTP = dispatch => ({
+const mDTP = dispatch => ({
   action: post => {}
 })
 
