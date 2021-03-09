@@ -19,10 +19,10 @@ const mDTP = dispatch => ({
 
 /* routerProps is being used in lieu of ownProps to signal their sole
  *  origin/use */
-const mergeProps = ({ currentUserId, 
+const mergeProps = ({ currentUserId,
                       posts },
                     { navButtons,
-                       editPost },
+                      editPost },
                     { post } )    => {
   if(post && posts[post.params.postId]
           && posts[post.params.postId].authorId === currentUserId ) {
