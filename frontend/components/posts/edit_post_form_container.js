@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import   PostForm  from './post_form';
+import { withRouter } from 'react-router';
 
-const mSTP = (state,routerProps) => {
-  debugger;
+const mSTP = ({entities: { posts }},{match: {params: { postId } } }) => {
   return ({
-  body: state.posts[routerProps.match.params.postId],
-  fromType: 'Edit Post'
+  body: posts[postId].body,
+  formType: 'Edit Post'
 }) }
 
 const mDTP = dispatch => ({
   action: post => {}
 })
 
-export default connect(mSTP,mDTP)(PostForm);
+export default withRouter(connect(mSTP,mDTP)(PostForm));
 

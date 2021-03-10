@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
 
 class Modal extends React.Component {
   constructor(props) {
@@ -36,7 +37,9 @@ class Modal extends React.Component {
            onClick={this.onClick} >
         <div className="modal"
              onClick={event => event.stopPropagation()}>
-          <Component />
+          <Route path={["/posts/:postId","*"]}>
+            <Component />
+          </Route>
         </div>
       </div>
     );
