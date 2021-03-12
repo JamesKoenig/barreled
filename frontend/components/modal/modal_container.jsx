@@ -4,8 +4,9 @@ import { connect    } from 'react-redux';
 
 import modalManifest from './modal_manifest';
 
-const mSTP = ({ui: { modal } })=> ({
-  Component: modalManifest[modal],
+const mSTP = ({ui: { modal: { type, misc } } } ) => ({
+  Component: modalManifest[type],
+  misc,
 });
 
 const mDTP = dispatch => ({

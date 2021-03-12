@@ -9,12 +9,17 @@ const mSTP = ({ entities: { posts },
   posts,
 });
 
-const mDTP = dispatch => ({
+const mDTP = (dispatch, {match: { params: { postId } } }) => ({
   navButtons: [
-    ["New Post",() => dispatch(openModal('newPost'))],
+    ["New Post",() => dispatch(openModal({type: 'newPost'}))],
     ["Logout", () => dispatch(logout())],
   ],
-  editPost: ["Edit Post", () => dispatch( openModal("editPost") ) ],
+  editPost: ["Edit Post", () => dispatch(
+    openModal({
+      type: "editPost",
+      misc: postId,
+    })
+  )],
 });
 
 /* routerProps is being used in lieu of ownProps to signal their sole
