@@ -23,9 +23,9 @@ const mergeProps = ({ currentUserId,
                       posts },
                     { navButtons,
                       editPost },
-                    { post } )    => {
-  if(post && posts[post.params.postId]
-          && posts[post.params.postId].authorId === currentUserId ) {
+                    { match: { params: { postId } } } ) => {
+  if(postId && posts[postId]
+          && posts[postId].authorId === currentUserId ) {
     return { navButtons: [editPost, ...navButtons] };
   } else {
   return { navButtons };

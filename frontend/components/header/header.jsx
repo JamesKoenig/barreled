@@ -7,10 +7,5 @@ import   UserHeader  from './user_header_container';
 
 export default () => (
   <AuthSplitRoute left={UserHeader}
-                  right={AuthHeader}
-                  post={useRouteMatch({
-                                        path:   "/posts/:postId",
-                                        strict: true,
-                                        exact:  true
-                                      }) }                         />
+                  right={AuthHeader} />
 );
