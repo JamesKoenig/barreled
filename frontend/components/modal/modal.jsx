@@ -27,7 +27,7 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { Component } = this.props;
+    const { Component,misc } = this.props;
 
     if(!Component)
       return null;
@@ -37,9 +37,7 @@ class Modal extends React.Component {
            onClick={this.onClick} >
         <div className="modal"
              onClick={event => event.stopPropagation()}>
-          <Route path={["/posts/:postId","*"]}>
-            <Component />
-          </Route>
+          <Component misc={misc} />
         </div>
       </div>
     );

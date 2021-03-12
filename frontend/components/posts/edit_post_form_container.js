@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import   PostForm  from './post_form';
 import { withRouter } from 'react-router';
 
-const mSTP = ({entities: { posts }},{match: {params: { postId } } }) => {
+const mSTP = ({entities: { posts }}, { misc: postId }) => {
   return ({
   body: posts[postId].body,
   formType: 'Edit Post'
