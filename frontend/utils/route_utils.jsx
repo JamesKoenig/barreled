@@ -9,8 +9,9 @@ const mSTP = state => ({
   loggedIn: Boolean(state.session.currentUserId),
 });
 
-const Either = (bool, path, Left_Component, Right_Component, ownProps) => (
-  <Route path={path}
+const Either = (bool, exact, path,
+                Left_Component, Right_Component, ownProps) => (
+  <Route exact={exact} path={path}
          render={ props => {
                     const Component = bool ? Left_Component : Right_Component;
                     return (
@@ -19,11 +20,12 @@ const Either = (bool, path, Left_Component, Right_Component, ownProps) => (
                 }} />
 );
 
-const AuthSplit = ({ loggedIn, path, left: Left, right: Right, ...rest}) => {
-  return Either(loggedIn, path, Left, Right, rest);
+const AuthSplit = ({ loggedIn, exact, path,
+                     left: Left, right: Right, ...rest}) => {
+  return Either(loggedIn, exact=undefined, path, Left, Right, rest);
 }
 
-const Auth = ({ loggedIn, path, component: Component }) =>
+const Auth = ({ loggedIn, exact, path, component: Component }) =>
   AuthSplit({ loggedIn, path, left: (<Redirect to="/"/>), right: Component });
 
 const Protected = props =>

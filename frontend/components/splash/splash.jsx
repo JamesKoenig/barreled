@@ -11,7 +11,9 @@ import   SignupForm     from './signup_form_container';
 import   Landing        from './landing';
 
 import { LANDING, LOGIN,
-         REGISTER, DEFAULT } from '../../utils/paths/session';
+         REGISTER } from '../../utils/paths/session';
+
+const DEFAULT = "/404";
 
 const NavButton = (url, label) => (
   <Link key={url} to={url}>
