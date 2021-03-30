@@ -31,20 +31,10 @@ const cases = {
   [REGISTER]: {
     AuthForm: SignupForm,
   },
-  [DEFAULT]: {
-    splashText: "There's nothing here.",
-    AuthForm: () => (
-          <p>Whatever you were looking for doesn't currently exist at this
-             address, unless you were looking for this error page, in which
-             case: congrats! you totally found it.</p>)
-  }
 }
 
 export default ({ location }) => (
   <Switch>
-    <Route exact path={Object.keys(cases)}>
-      <SplashPane {...cases[useLocation().pathname]} />
-    </Route>
-    <Redirect to={DEFAULT} />
+    <SplashPane {...cases[useLocation().pathname]} />
   </Switch>
 )
