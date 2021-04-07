@@ -1,7 +1,10 @@
 import   React            from 'react';
 import   Splash           from './splash/splash_container';
 import   Feed             from './feed/feed_container';
-import { AuthSplitRoute } from '../utils/route_utils';
+import {
+  AuthRoute,
+  AuthSplitRoute,
+} from '../utils/route_utils';
 import { Switch,
          Redirect,
          Route          } from 'react-router'
@@ -23,7 +26,7 @@ export default () => (
                       right={Splash} />
       <Route exact path={postUrlsStrings}
                    component={PostShow} />
-      <Route exact path={sessionUrlsStrings}
+      <AuthRoute exact path={sessionUrlsStrings}
              component={Splash} />
       <Route exact path={Four04Path}
              component={Four04}

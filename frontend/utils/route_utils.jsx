@@ -20,13 +20,16 @@ const Either = (bool, exact, path,
                 }} />
 );
 
-const AuthSplit = ({ loggedIn, exact, path,
+const AuthSplit = ({ loggedIn, exact=undefined, path,
                      left: Left, right: Right, ...rest}) => {
-  return Either(loggedIn, exact=undefined, path, Left, Right, rest);
+  return Either(loggedIn, exact, path, Left, Right, rest);
 }
 
 const Auth = ({ loggedIn, exact, path, component: Component }) =>
-  AuthSplit({ loggedIn, path, left: (<Redirect to="/"/>), right: Component });
+  AuthSplit({ loggedIn,
+              path,
+              left: props => (<Redirect to="/" {...props} />),
+              right: Component });
 
 const Protected = props =>
   Auth( Object.assign({},props,{ loggedIn: !props.loggedIn }) );
