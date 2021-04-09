@@ -25,3 +25,5 @@ tmp/
 # ignore asset files
 public/assets
 
+# ignore byebug history
+.byebug_history
