@@ -7,6 +7,7 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   has_many :posts,
+    foreign_key: :author_id,
     class_name: :Post
 
   def ensure_session_token
