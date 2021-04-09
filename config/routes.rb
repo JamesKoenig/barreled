@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace   :api, defaults: { format: :json } do
     resources :users,   only: [ :create, :destroy ]
     resource  :session, only: [ :create, :destroy, :show ]
+    get "/posts/feed", to: "posts#feed"
     resources :posts, except: [ :index, :edit, :new ]
   end
 end

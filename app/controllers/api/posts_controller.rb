@@ -14,6 +14,11 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def feed
+    @posts = current_user.posts
+    render :index
+  end
+
   def update
     @post = Post.find(params[:id])
 
