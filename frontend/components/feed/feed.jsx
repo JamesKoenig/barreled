@@ -1,19 +1,16 @@
-import   React      from 'react';
-import { Switch,
-         Route,
-         Redirect } from 'react-router-dom';
+import React, {
+  useEffect
+} from 'react';
 
-export default ({ logout }) => (
-  <>
-    <Route path="/">
-      <div id="feed">
-        <button onClick={() => logout()}>logout</button>
-      </div>
-    </Route>
-    <Switch>
-      <Route path="*">
-        <Redirect to="/" />
-      </Route>
-    </Switch>
-  </>
-)
+export default ({ posts=[], logout, getFeed }) => {
+  useEffect(() => {
+    getFeed();
+  }, []);
+  return (
+  <div id="feed">
+    <button onClick={() => logout()}>logout</button>
+    <ul>
+      {posts.map( () => {}) }
+    </ul>
+  </div>
+)}
