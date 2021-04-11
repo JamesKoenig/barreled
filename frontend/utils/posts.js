@@ -4,3 +4,8 @@ export const fetchPost = postId => (
   })
 );
 
+export const fetchFeed = () => (
+  $.ajax({
+    url: 'api/posts/feed'
+  })
+);
