@@ -1,10 +1,20 @@
 class StoreArray {
-  constructor(arr=[], sortFn) {
-    this.arr = arr;
+  constructor(arr=[]) {
+    this.arr = [...arr];
+    this.duplicateCheck = new Set();
+    arr.forEach( element => {
+      this.duplicateCheck.add(this._getDuplicateKey(element))
+    });
     this.last = arr.length -1;
-    if(sortFn) {
-      this.sort = () => this.arr.sort(sortFn);
-    }
+  }
+
+  sort() {
+    this.arr.sort( (a,b) => a.time - b.time);
+    return this;
+  }
+
+  _getDuplicateKey({time,id}) {
+    return `${time}id${id}`;
   }
 
   free_space() {
@@ -18,39 +28,36 @@ class StoreArray {
     return this;
   }
 
-  sort() {
-    return this.arr.sort();
-  }
-
-  add(thing) {
-    if(Array.isArray(thing)) {
-      return concat(thing);
-    } else {
-      return concat([thing]);
-    }
-  }
-
   push(element) {
-    if(this.free_space() < 1) {
+    if(this.duplicateCheck.has(this._getDuplicateKey(element))) {
+      return this.arr;
+    } else if(this.free_space() < 1) {
       this.double_size();
     }
+
     this.last += 1;
     this.arr[this.last] = element;
 
-    return this.sort();
+    this.sort();
+    return this;
   }
 
   concat(otherArr) {
     const { length: otherLength } = otherArr;
+
     while(this.free_space() < otherLength) {
       this.double_size();
     }
     const start = this.last+1;
     for(let index = 0; index < otherLength; index++) {
-      this.arr[start+index] = otherArr[index];
+      const element = otherArr[index]
+      if(this.duplicateCheck.has(this._getDuplicateKey(element)))
+        continue;
+      this.last += 1;
+      this.arr[this.last] = element;
     }
-    this.last += otherLength;
-    return this.sort();
+    this.sort();
+    return this;
   }
 
   map( fn=( x => x ) ) {
