@@ -12,3 +12,7 @@ json.users do
   end
 end
 
+json.timeStamps
+  json.time @post.updated_at.to_i
+  json.id   @post.id
+end
