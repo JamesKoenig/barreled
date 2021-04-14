@@ -1,11 +1,19 @@
 class StoreArray {
-  constructor(arr=[]) {
-    this.arr = [...arr];
-    this.duplicateCheck = new Set();
-    arr.forEach( element => {
-      this.duplicateCheck.add(this._getDuplicateKey(element))
-    });
-    this.last = arr.length -1;
+  constructor(arg=[]) {
+    if(Array.isArray(arg)) {
+      this.arr = [...arg];
+      this.duplicateCheck = new Set();
+      this.arr.forEach( element => {
+        this.duplicateCheck.add(this._getDuplicateKey(element))
+      });
+      this.last = this.arr.length -1;
+    } else {
+      /* assume the arg is a StoreArray instance */
+      const { arr, last, duplicateCheck } = arg;
+      this.arr = [...arr];
+      this.duplicateCheck = new Set(duplicateCheck);
+      this.last = last;
+    }
   }
 
   sort() {
@@ -22,40 +30,35 @@ class StoreArray {
     return length-(last+1);
   }
 
-  double_size() {
-    const { arr } = this;
-    arr.length *= 2;
-    return this;
-  }
-
   push(element) {
     if(this.duplicateCheck.has(this._getDuplicateKey(element))) {
       return this.arr;
-    } else if(this.free_space() < 1) {
-      this.double_size();
     }
 
     this.last += 1;
     this.arr[this.last] = element;
+    this.duplicateCheck.add(this._getDuplicateKey(element));
 
     this.sort();
     return this;
   }
 
   concat(otherArr) {
-    const { length: otherLength } = otherArr;
+    const filteredArr = otherArr.filter( feedItem =>
+      !this.duplicateCheck.has(this._getDuplicateKey(feedItem))
+    );
 
-    while(this.free_space() < otherLength) {
-      this.double_size();
-    }
-    const start = this.last+1;
-    for(let index = 0; index < otherLength; index++) {
-      const element = otherArr[index]
-      if(this.duplicateCheck.has(this._getDuplicateKey(element)))
-        continue;
+    const { length: otherLength } = filteredArr;
+
+    if(otherLength === 0) return this;
+
+    this.arr.length += (otherLength - this.free_space())
+
+    filteredArr.forEach( element => {
       this.last += 1;
       this.arr[this.last] = element;
-    }
+      this.duplicateCheck.add(this._getDuplicateKey(element));
+    });
     this.sort();
     return this;
   }
