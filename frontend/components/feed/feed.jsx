@@ -2,15 +2,19 @@ import React, {
   useEffect
 } from 'react';
 
-export default ({ posts=[], logout, getFeed }) => {
+import FeedItem from './feed_item_container';
+
+export default ({ feedItems, logout, getFeed }) => {
   useEffect(() => {
     getFeed();
   }, []);
   return (
   <div id="feed">
     <button onClick={() => logout()}>logout</button>
-    <ul>
-      {posts.map( () => {}) }
+    <ul id="feed-index">
+      {feedItems.map( (feedItem,idx) => (
+        <FeedItem key={idx} feedItem={feedItem} />
+      ))}
     </ul>
   </div>
 )}
