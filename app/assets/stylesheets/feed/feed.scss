@@ -2,6 +2,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow-y: auto;
     background-color: $base-bg;
     display: flex;
     justify-content: center;
@@ -25,4 +26,12 @@
 #feed-index {
     display: flex;
     flex-direction: column;
+}
+
+.feed-index-item {
+    margin-top: 10px;
+}
+
+.feed-index-item:first-of-type {
+    margin-top: 0;
 }

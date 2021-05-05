@@ -3,7 +3,7 @@ import PostBox from '../posts/post_box';
 
 export default ({post, author}) => {
   return (
-    <li>
+    <li className="feed-index-item">
       <PostBox post={post} author={author} />
     </li>
   );
