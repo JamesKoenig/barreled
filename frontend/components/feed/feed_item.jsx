@@ -1,8 +1,10 @@
 import React from 'react';
-import PostDisplay from '../posts/post_display';
+import PostBox from '../posts/post_box';
 
-export default ({ post, author, getPost }) => (
-  <li>
-    <PostDisplay post={post} author={author} getPost={getPost} />
-  </li>
-)
+export default ({post, author}) => {
+  return (
+    <li>
+      <PostBox post={post} author={author} />
+    </li>
+  );
+}

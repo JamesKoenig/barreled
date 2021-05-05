@@ -9,8 +9,4 @@ const mSTP = ({ entities: { posts, users } }, { feedItem }) => {
   };
 };
 
-const mDTP = {
-  getPost: () => {},
-};
-
-export default connect(mSTP,mDTP)(FeedItem);
+export default connect(mSTP)(FeedItem);
