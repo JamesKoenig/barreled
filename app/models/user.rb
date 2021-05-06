@@ -10,6 +10,28 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Post
 
+  has_many :likes,
+    class_name: :Like
+
+  has_many :liked_posts,
+    through: :likes,
+    source: :post
+
+  has_many :follower_rows,
+    foreign_key: :followed_id,
+    class_name: :Follow
+
+  has_many :followers,
+    through: :follower_rows
+
+  has_many :follow_rows,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :follows,
+    through: :follow_rows,
+    source: :followed
+
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
