@@ -36,6 +36,18 @@ class User < ApplicationRecord
     through: :follow_rows,
     source: :followed
 
+  has_many :follows_posts,
+    through: :follows,
+    source: :posts
+
+  has_many :feed,
+    foreign_key: :user_id,
+    class_name: :Feed
+
+  has_many :notifications,
+    foreign_key: :user_id,
+    class_name: :Notification
+
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
