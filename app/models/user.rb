@@ -17,6 +17,10 @@ class User < ApplicationRecord
     through: :likes,
     source: :post
 
+  has_many :likers,
+    through: :posts,
+    source: :likers
+
   has_many :follower_rows,
     foreign_key: :followed_id,
     class_name: :Follow
