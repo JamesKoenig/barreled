@@ -2,9 +2,9 @@ import   React     from 'react';
 import { connect } from 'react-redux';
 import   Feed      from './feed';
 import { logout  } from '../../actions/session.js';
-import { getFeed } from '../../actions/posts.js';
+import { getFeed } from '../../actions/feed';
 
-const mSTP = ({entities: { feedEntities: { arr: feedItems }}}) => {
+const mSTP = ({entities: { feedEntities: feedItems }}) => {
   return {
     feedItems,
   }

@@ -1,16 +1,13 @@
 import   StoreArray            from '../../utils/store_array';
-import { RECEIVE_SORTED_FEED } from '../../actions/feed';
+import { RECEIVE_FEED } from '../../actions/feed';
 
-const _defaultState = new StoreArray();
+const _defaultState = []
 
 const feedReducer = (oldState= _defaultState, { type, feedEntities }) => {
   Object.freeze(oldState);
   switch(type) {
-    case RECEIVE_SORTED_FEED: {
-      let storeArray = new StoreArray(oldState);
-      storeArray.concat(feedEntities);
-      return storeArray;
-    }
+    case RECEIVE_FEED:
+      return feedEntities;
     default:
       return oldState;
   }
