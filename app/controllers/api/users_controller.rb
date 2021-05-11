@@ -3,6 +3,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
+      Follow.create(follower_id: @user.id, followed_id: @user.id, hidden: true)
       redirect_to api_session_url
     else
       render json: @user.errors.full_messages, status: 400

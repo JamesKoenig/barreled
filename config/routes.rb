@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :users,   only: [ :create, :destroy ] do
       resources :follows, only: [ :create, :destroy, :index ]
     end
+    resources :notifications, only: :index
+    resources :feed, only: :index
     resource  :session, only: [ :create, :destroy, :show ]
     get "/posts/feed", to: "posts#feed"
     resources :posts, except: [ :index, :edit, :new ] do

@@ -30,6 +30,7 @@ class User < ApplicationRecord
 
   has_many :follow_rows,
     foreign_key: :follower_id,
+    dependent: :destroy,
     class_name: :Follow
 
   has_many :follows,
