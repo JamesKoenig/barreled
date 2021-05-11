@@ -10,7 +10,7 @@ const receivePosts = posts => ({
 
 export const getPost = postId => dispatch =>
   fetchPost(postId)
-    .then( ({ posts, users, timeStamps }) => {
+    .then( ({ posts, users }) => {
       dispatch(receivePosts(posts));
       dispatch(receiveUsers(users));
     })

@@ -1,10 +1,17 @@
 import React from 'react';
-import PostBox from '../posts/post_box';
+import FeedPost from './feed_post_container';
 
-export default ({post, author}) => {
+const _feedItemDisplays = {
+  ['like']:   (() => <p>hello world I'm a like</p>),
+  ['follow']: (() => <p>hello world I'm a follow</p>),
+  ['post']:   FeedPost,
+}
+
+export default(feedItem) => {
+  const FeedItemBox = _feedItemDisplays[feedItem.type];
   return (
     <li className="feed-index-item">
-      <p>hello world!</p>
+      <FeedItemBox { ...feedItem } />
     </li>
   );
 }
