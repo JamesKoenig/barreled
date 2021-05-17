@@ -3,7 +3,7 @@ import { receiveUsers } from './users';
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS"
 
-const receivePosts = posts => ({
+export const receivePosts = posts => ({
   type: RECEIVE_POSTS,
   posts
 });

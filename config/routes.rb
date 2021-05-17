@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :notifications, only: :index
     resources :feed, only: :index
     resource  :session, only: [ :create, :destroy, :show ]
-    get "/posts/feed", to: "posts#feed"
     resources :posts, except: [ :index, :edit, :new ] do
       resources :likes, only: [ :create, :destroy, :index]
     end

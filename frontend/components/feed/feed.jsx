@@ -10,7 +10,6 @@ export default ({ feedItems, logout, getFeed }) => {
   }, []);
   return (
   <div id="feed">
-    <button onClick={() => logout()}>logout</button>
     <ul id="feed-index">
       {feedItems.map( (feedItem,idx) => (
         <FeedItem key={`feed-${idx}`} {...feedItem} />
