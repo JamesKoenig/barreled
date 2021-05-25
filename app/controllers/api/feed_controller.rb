@@ -2,8 +2,18 @@ class Api::FeedController < ApplicationController
   def index
     @feed_items = current_user
                    .feed
-                   .joins("JOIN users AS whos ON whos.id = feeds.who")
-                   .joins("LEFT OUTER JOIN posts ON posts.id = feeds.post_id")
+                   .joins(<<~SQL
+                        JOIN
+                          users AS whos ON
+                            whos.id = feeds.who
+                      SQL
+                    )
+                   .joins(<<~SQL
+                        LEFT OUTER JOIN
+                          posts ON
+                            posts.id = feeds.post_id
+                      SQL
+                    )
                    .select(
                      :updated_at,
                      :who,
@@ -12,6 +22,7 @@ class Api::FeedController < ApplicationController
                      :username,
                      :body,
                      :author_id,
+                     :total_likes,
                    )
 
     render :index

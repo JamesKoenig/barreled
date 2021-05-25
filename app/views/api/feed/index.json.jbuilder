@@ -1,3 +1,5 @@
+json.key_format! camelize: :lower
+
 json.feedItems do
   json.partial! 'api/feed/feed_or_notification_item',
                 collection: @feed_items,
@@ -6,10 +8,11 @@ end
 
 json.posts do
   @feed_items.each do |feed_item|
-    json.set!       feed_item.post_id do
-      json.id       feed_item.post_id
-      json.body     feed_item.body
-      json.authorId feed_item.author_id
+    if !!feed_item.post_id
+      json.set!       feed_item.post_id do
+        json.id       feed_item.post_id
+        json.extract! feed_item, :body, :post_id, :total_likes
+      end
     end
   end
 end

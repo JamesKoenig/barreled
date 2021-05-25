@@ -1,7 +1,8 @@
+json.key_format! camelize: :lower
+
 json.posts do
   json.set! @post.id do
-    json.extract! @post, :id, :body
-    json.authorId @post.author_id
+    json.extract! @post, :id, :body, :author_id, :total_likes
     json.dateTime @post.created_at
   end
 end
