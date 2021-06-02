@@ -8,12 +8,12 @@ const mapStateToProps = ({
       users
     }
   }, {
-    post_id,
-    user_id,
+    postId,
+    userId,
   }
 ) => ({
-  user: users[user_id],
-  post: posts[post_id],
+  user: users[userId],
+  post: posts[postId],
 })
 
 export default connect(mapStateToProps)(FeedLike);

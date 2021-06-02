@@ -9,10 +9,10 @@ const mapStateToProps = (
     }
   },
   {
-    user_id
+    userId,
   }
 ) => ({
-  follower: users[user_id],
+  follower: users[userId],
 })
 
 export default connect(mapStateToProps)(FeedFollow);
