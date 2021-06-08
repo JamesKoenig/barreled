@@ -40,7 +40,7 @@ class Api::PostsController < ApplicationController
     end
 
     if @post.destroy
-      redirect_to root_url;
+      render :show
     else
       render json: @post.errors.full_messages, status: 422
     end
