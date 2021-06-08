@@ -10,7 +10,7 @@ export const postPost = post =>
     data: { post },
   });
 
-export const updatePost = post =>
+export const patchPost = post =>
   $.ajax({
     url: `api/posts/${post.id}`,
     method: 'PATCH',
