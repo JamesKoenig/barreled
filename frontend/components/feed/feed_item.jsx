@@ -5,7 +5,7 @@ import FeedFollow from './feed_follow_container';
 
 const _feedItemDisplays = {
   ['like']:   FeedLike,
-  ['follow']: props => { console.log(props); return (<FeedFollow {...props} />)},
+  ['follow']: FeedFollow,
   ['post']:   FeedPost,
 }
 

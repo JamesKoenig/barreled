@@ -10,17 +10,10 @@
     flex-direction: column;
 }
 
-#feed button {
-    width: 300px;
-    height: 168.75px; //16:9
-    font-family: $logo-char;
-    color: white;
-    font-size: xx-large;
-    font-weight: bolder;
-    border-radius: 10px;
-    background: $blue-button;
-    border-color: $blue-button;
-    margin-bottom: 30px;
+.post-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #feed-index {
