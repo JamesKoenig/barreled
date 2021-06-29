@@ -6,4 +6,11 @@
 
 .post-header {
     width: 100%;
+    border-bottom: $post-border;
+}
+
+.post-properties {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
