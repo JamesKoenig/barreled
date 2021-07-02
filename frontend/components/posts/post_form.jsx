@@ -11,7 +11,12 @@ class PostForm extends React.Component {
 
    _handleSubmit(event) {
     event.preventDefault();
-    this.props.action(this.state);
+    this.props.action(this.state)
+      .then( () => {
+        if(this.props.errors.length === 0) {
+          this.props.closeModal();
+        }
+      })
   }
 
   _update(event) {

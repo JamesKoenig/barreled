@@ -5,9 +5,15 @@ import {
   deletePost,
 } from '../utils/posts';
 import { receiveUsers } from './users';
+import * as post_errors from './post_errors';
 
-export const RECEIVE_POSTS = "RECEIVE_POSTS"
-export const REMOVE_POST   = "REMOVE_POST"
+const {
+  receivePostErrors: receiveErrors,
+  clearPostErrors: clearErrors,
+} = post_errors;
+
+export const RECEIVE_POSTS       = "RECEIVE_POSTS";
+export const REMOVE_POST         = "REMOVE_POST";
 
 export const receivePosts = posts => ({
   type: RECEIVE_POSTS,
@@ -34,6 +40,12 @@ const postAction = utilAction => post => dispatch =>
       dispatch(receivePosts(posts));
       dispatch(receiveUsers(users));
     })
+    .then( () =>
+      dispatch(clearErrors())
+    )
+    .catch( error =>
+      dispatch(receiveErrors(error.responseJSON))
+    );
 
 export const createPost = postAction(postPost);
 export const updatePost = postAction(patchPost);
