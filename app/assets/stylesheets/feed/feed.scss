@@ -14,6 +14,7 @@
 #feed-index {
     display: flex;
     flex-direction: column;
+    max-height: 80%;
 }
 
 .feed-index-item {
@@ -22,6 +23,11 @@
 
 .feed-index-item:first-of-type {
     margin-top: 0;
+}
+
+//could also just be :last-of-type
+.feed-index-item:last-child {
+    padding-bottom: 100px;
 }
 
 .feed-index-item p {
