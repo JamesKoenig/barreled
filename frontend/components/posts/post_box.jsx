@@ -32,7 +32,8 @@ export default ({ post, author }) => {
          onClick={boxOnClick} >
       <header className="post-header">
         <h3 className="author-name">{author.username}</h3>
-        <button onClick={etcOnClick}>...</button>
+        <button className="post-etc"
+                onClick={etcOnClick}>...</button>
       </header>
       <div className="post-content">
         <p className="post-text">{post.body}</p>

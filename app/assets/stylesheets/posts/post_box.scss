@@ -7,6 +7,14 @@
 .post-header {
     width: 100%;
     border-bottom: $post-border;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-etc {
+    margin-right: 10px;
+    height: 80%;
+    align-self: center;
 }
 
 .post-properties {
