@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory,useLocation } from 'react-router-dom';
+import EtcButton from './post_etc';
 
 export default ({ post, author }) => {
   const history = useHistory();
@@ -17,11 +18,6 @@ export default ({ post, author }) => {
     }
   }
 
-  const etcOnClick = event => {
-    event.stopPropagation();
-    alert("etc action");
-  }
-
   const likerOnClick = event => {
     event.stopPropagation();
     alert("button pressed");
@@ -32,8 +28,7 @@ export default ({ post, author }) => {
          onClick={boxOnClick} >
       <header className="post-header">
         <h3 className="author-name">{author.username}</h3>
-        <button className="post-etc"
-                onClick={etcOnClick}>...</button>
+        <EtcButton />
       </header>
       <div className="post-content">
         <p className="post-text">{post.body}</p>
