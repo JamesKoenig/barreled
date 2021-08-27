@@ -35,7 +35,8 @@ export default ({ post, author }) => {
       </div>
       <footer className="post-properties">
         <p>{`${post.totalLikes} likes`}</p>
-        <button onClick={ likerOnClick }>hello world</button>
+        <button className='post-like-button'
+                onClick={ likerOnClick }>hello world</button>
       </footer>
     </div>
   )
