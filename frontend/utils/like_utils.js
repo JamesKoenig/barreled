@@ -6,6 +6,6 @@ export const likePost = postId =>
 
 export const unlikePost = postId =>
   $.ajax({
-    url: `api/posts/${postID}/likes`,
+    url: `api/posts/${postId}/likes`,
     method: "DELETE",
   });
