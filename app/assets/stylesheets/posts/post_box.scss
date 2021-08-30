@@ -14,10 +14,16 @@
 .post-etc {
     margin-right: 10px;
     height: 80%;
-    align-self: center;
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .post-like-button {
+    background: $blue-button;
+    border-radius: 4px;
+    border: none;
 }
 
 .post-properties {
