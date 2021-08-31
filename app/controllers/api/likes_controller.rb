@@ -13,11 +13,16 @@ class Api::LikesController < ApplicationController
         Post.left_outer_joins(:likes)
             .where(posts: { id: params[:post_id] })
             .group("posts.id")
-            .pluck("count(likes.user_id)")
+            .pluck("count(likes.user_id)")[0]
+      # the [0] above is inelegant but got the job done for now...
       post.save!
       redirect_to api_post(params[:post_id])
     else
       render json: @like.errors.full_messages, status: 400
     end
+  end
+
+  def destroy
+    render json: "endpoint stub!", status: 400
   end
 end

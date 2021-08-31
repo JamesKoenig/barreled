@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :feed, only: :index
     resource  :session, only: [ :create, :destroy, :show ]
     resources :posts, except: [ :index, :edit, :new ] do
-      resources :likes, only: [ :create, :destroy ]
+      resource :like, only: [ :create, :destroy ]
     end
   end
 end
