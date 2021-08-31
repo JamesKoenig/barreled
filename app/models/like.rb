@@ -1,6 +1,8 @@
 class Like < ApplicationRecord
   validates :user_id, :post_id, presence: true
-  validates_uniqueness_of :user_id, scope: :post_id
+  validates_uniqueness_of :user_id,
+    scope: :post_id,
+    message: "has already liked this post"
 
   belongs_to :post,
     foreign_key: :post_id,
