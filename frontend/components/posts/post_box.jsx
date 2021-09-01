@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory,useLocation } from 'react-router-dom';
 import EtcButton from './post_etc';
+import LikeButton from '../likes/like_button_container';
 
 export default ({ post, author }) => {
   const history = useHistory();
@@ -18,11 +19,6 @@ export default ({ post, author }) => {
     }
   }
 
-  const likerOnClick = event => {
-    event.stopPropagation();
-    alert("button pressed");
-  }
-
   return (
     <div className="post-display"
          onClick={boxOnClick} >
@@ -35,8 +31,7 @@ export default ({ post, author }) => {
       </div>
       <footer className="post-properties">
         <p>{`${post.totalLikes} likes`}</p>
-        <button className='post-like-button'
-                onClick={ likerOnClick }>hello world</button>
+        <LikeButton />
       </footer>
     </div>
   )
