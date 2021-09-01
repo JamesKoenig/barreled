@@ -23,22 +23,9 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find_by post_id: params[:post_id], user_id: current_user.id
-    if @like
-      sql_sanitized = ActiveRecord::Base.send :sanitize_sql, [
-        <<~SQL
-          DELETE FROM
-            likes
-          WHERE
-            likes.post_id = ?
-          AND
-            likes.user_id = ?
-        SQL
-      ,
-        @like.post_id,
-        @like.user_id,
-      ]
-    ActiveRecord::Base.connection.execute sql_sanitized
+    like = Like.find_by post_id: params[:post_id], user_id: current_user.id
+
+    like.delete # I could've made this a oneliner but I decided not to
 
     #check if the like no longer exists
     if !Like.find_by post_id: params[:post_id], user_id: current_user.id
