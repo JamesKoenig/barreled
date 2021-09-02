@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ isLiked, likeCb }) => {
+export default ({ postId, isLiked, toggleLike }) => {
   const likerOnClick = event => {
     event.stopPropagation();
     alert("like button pressed");

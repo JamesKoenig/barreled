@@ -45,5 +45,5 @@ export const unlike = postId => dispatch =>
       error => dispatch(handleLikeError(error))
     )
 
-export const likeCb = (postId, isLiked ) => dispatch =>
+export const toggleLike = (postId, isLiked ) => dispatch =>
   dispatch( isLiked ? unlike(postId) : like(postId) );
