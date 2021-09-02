@@ -3,7 +3,7 @@ import React from 'react';
 export default ({ postId, isLiked, toggleLike }) => {
   const likerOnClick = event => {
     event.stopPropagation();
-    alert("like button pressed");
+    alert(`like button pressed on ${postId}`);
   }
 
   return (
