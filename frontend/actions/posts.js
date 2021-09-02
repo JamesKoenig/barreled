@@ -40,12 +40,10 @@ const postAction = utilAction => post => dispatch =>
       dispatch(receivePosts(posts));
       dispatch(receiveUsers(users));
     })
-    .then( () =>
-      dispatch(clearErrors())
+    .then(
+      () => dispatch(clearErrors()),
+      error => dispatch(receiveErrors(error.responseJSON))
     )
-    .catch( error =>
-      dispatch(receiveErrors(error.responseJSON))
-    );
 
 export const createPost = postAction(postPost);
 export const updatePost = postAction(patchPost);
