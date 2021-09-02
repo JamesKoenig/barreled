@@ -16,7 +16,7 @@ class Api::LikesController < ApplicationController
             .pluck("count(likes.user_id)")[0]
       # the [0] above is inelegant but got the job done for now...
       post.save!
-      redirect_to api_post(params[:post_id])
+      redirect_to api_post_url(params[:post_id])
     else
       render json: @like.errors.full_messages, status: 400
     end
@@ -25,10 +25,12 @@ class Api::LikesController < ApplicationController
   def destroy
     like = Like.find_by post_id: params[:post_id], user_id: current_user.id
 
-    like.delete # I could've made this a oneliner but I decided not to
+    if !like
+      render json: ["user has not liked that post"], status: 400
+      return
+    end
 
-    #check if the like no longer exists
-    if !Like.find_by post_id: params[:post_id], user_id: current_user.id
+    if like.destroy
       render json: ["successfully unliked post"], status: 200
     else
       render json: ["unable to unlike post"], status: 400

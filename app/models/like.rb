@@ -12,16 +12,19 @@ class Like < ApplicationRecord
     foreign_key: :user_id,
     class_name: :User
 
-  def delete
-    sql_sanitized = ActiveRecord::Base.send :sanitize_sql, [
-        "DELETE FROM likes WHERE likes.post_id = ? AND likes.user_id = ?",
-        post_id,
-        user_id
-    ]
+  def destroy
+    # this is based on rails source code, git tag v5.4.4.4 
+    #   in activerecord/lib/active_record/persistence.rb lines 323, 681, & 336
+    res = true
+    if persisted?
+      res = self.class._delete_record( \
+        post_id: self.post_id, user_id: self.user_id) > 0
+    end
 
-    ActiveRecord::Base.connection.execute sql_sanitized
-
-    # as per the behavior of the overloaded delete method
-    return self
+    if res
+      @destroyed = true
+      freeze
+    end
+    return res
   end
 end
