@@ -15,5 +15,7 @@ user = User.new(username: "demoUser",
 
 user.save!
 
+Follow.create!(follower_id: user.id, followed_id: user.id, hidden: true)
+
 post = Post.new(body: "hello friends!", author_id: user.id)
 post.save!
