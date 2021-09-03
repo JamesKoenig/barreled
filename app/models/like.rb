@@ -13,7 +13,7 @@ class Like < ApplicationRecord
     class_name: :User
 
   def destroy
-    # this is based on rails source code, git tag v5.4.4.4 
+    # this is based on rails source code, git tag v5.4.4.4
     #   in activerecord/lib/active_record/persistence.rb lines 323, 681, & 336
     res = true
     if persisted?
