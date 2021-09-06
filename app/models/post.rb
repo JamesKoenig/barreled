@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   validates :body, :author_id, presence: true
+  attr_accessor :post_liked
 
   belongs_to :author,
     foreign_key: :author_id,
