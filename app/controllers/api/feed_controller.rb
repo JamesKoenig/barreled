@@ -15,7 +15,7 @@ class Api::FeedController < ApplicationController
                       SQL
                     )
                    .select(
-                     :updated_at,
+                     :created_at,
                      :who,
                      :action,
                      :post_id,

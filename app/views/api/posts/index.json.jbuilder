@@ -17,6 +17,6 @@ json.users do
 end
 
 json.timeStamps @posts do |post|
-  json.time post.updated_at.to_i
+  json.time post.created_at.to_i
   json.id   post.id
 end
