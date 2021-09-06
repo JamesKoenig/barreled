@@ -11,6 +11,7 @@ json.posts do
     if !!feed_item.post_id
       json.set!       feed_item.post_id do
         json.id       feed_item.post_id
+        json.isLiked  feed_item.post_liked
         json.extract! feed_item, :body, :post_id, :total_likes
       end
     end
