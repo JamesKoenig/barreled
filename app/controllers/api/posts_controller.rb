@@ -1,9 +1,13 @@
 class Api::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
-    like = Like.find_by(post_id: @post.id, user_id: current_user.id)
-    @post.post_liked = !!like
-    render :show
+    if !@post
+      render json: @post.errors.full_messages, status: 404
+    else
+      like = Like.find_by(post_id: @post.id, user_id: current_user.id)
+      @post.post_liked = !!like
+      render :show
+    end
   end
 
   def create
