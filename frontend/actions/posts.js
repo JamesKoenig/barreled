@@ -8,8 +8,9 @@ import { receiveUsers } from './users';
 import * as post_errors from './post_errors';
 
 const {
-  receivePostErrors: receiveErrors,
-  clearPostErrors: clearErrors,
+  receivePostErrors:   receiveErrors,
+  clearPostErrors:     clearErrors,
+  receivePostNotFound: postNotFoundError,
 } = post_errors;
 
 export const RECEIVE_POSTS       = "RECEIVE_POSTS";
@@ -25,7 +26,9 @@ export const getPost = postId => dispatch =>
     .then( ({ posts, users }) => {
       dispatch(receivePosts(posts));
       dispatch(receiveUsers(users));
-    });
+    }, error =>
+        dispatch(postNotFoundError())
+    );
 
 /* this pattern could technically be used for the other actions as well,
  *   but I didn't want to vague-up the argument type (post vs postId)
