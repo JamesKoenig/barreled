@@ -3,17 +3,20 @@ import { toggleLike } from '../../actions/like_actions';
 
 import LikeButton from './like_button';
 
-const mDTP = ( dispatch, { postId, isLiked } ) => ({
-  toggleLike: () => dispatch(toggleLIke(postId, isLiked)),
-});
+const mDTP = {
+  toggleLike,
+};
 
 const mergeProps = ( _, dispProps, ownProps ) => {
-  const { isLiked, postId } = ownProps;
-  const dispToggleLike = dispProps.toggleLike;
+  const { toggleLike: dispToggleLike } = dispProps;
+  const { id: postId, isLiked } = ownProps.post;
 
   // if more dispatch props are needed than toggleLike, add ...dispProps below
+  //   but before the toggleLike assignment
   return ({
     ...ownProps,
+    isLiked,
+    postId,
     toggleLike: () => dispToggleLike(postId, isLiked),
   })
 };
