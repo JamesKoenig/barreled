@@ -15,9 +15,11 @@
 }
 
 .post-properties {
+    display: flex;
+    align-items: center;
     border-top: $post-border;
-    padding: 8px;
-    margin-left: 3px;
+    justify-content: space-between;
+    padding: 8px 24px;
 }
 
 .post-show-side {
