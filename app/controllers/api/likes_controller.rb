@@ -16,7 +16,7 @@ class Api::LikesController < ApplicationController
             .pluck("count(likes.user_id)")[0]
       # the [0] above is inelegant but got the job done for now...
       post.save!
-      redirect_to api_post_url(params[:post_id])
+      redirect_to api_post_url(params[:post_id]), status: :see_other
     else
       render json: @like.errors.full_messages, status: 400
     end
@@ -31,7 +31,7 @@ class Api::LikesController < ApplicationController
     end
 
     if like.destroy
-      render json: ["successfully unliked post"], status: 200
+      redirect_to api_post_url(params[:post_id]), status: :see_other
     else
       render json: ["unable to unlike post"], status: 400
     end
