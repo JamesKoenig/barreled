@@ -7,14 +7,14 @@ export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 export const REMOVE_LIKE  = 'REMOVE_LIKE';
 export const LIKE_ERROR   = 'LIKE_ERROR';
 
-const receiveLike = like => ({
+const receiveLike = posts => ({
   type: RECEIVE_LIKE,
-  like,
+  posts,
 });
 
-const removeLike = postId => ({
+const removeLike = posts => ({
   type: REMOVE_LIKE,
-  like,
+  posts,
 });
 
 const likeError = err => ({
@@ -32,8 +32,8 @@ const handleLikeError = err => dispatch => {
 export const like = postId => dispatch =>
   likePost(postId)
     .then(
-      like =>
-        dispatch(receiveLike(like)),
+      ({ posts }) =>
+        dispatch(receiveLike(posts)),
       error =>
         dispatch(handleLikeError(error))
       )
@@ -41,7 +41,7 @@ export const like = postId => dispatch =>
 export const unlike = postId => dispatch =>
   unlikePost(postId)
     .then(
-      like  => dispatch(removeLike(like)),
+      ({ posts }) => dispatch(removeLike(posts)),
       error => dispatch(handleLikeError(error))
     )
 
