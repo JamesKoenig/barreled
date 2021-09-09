@@ -7,7 +7,8 @@ export default ({ postId, isLiked, toggleLike }) => {
   const [classes,setClasses] = useState("material-icons md-inactive");
   const likerOnClick = event => {
     event.stopPropagation();
-    alert(`like button pressed on ${postId}`);
+    console.log(isLiked);
+    toggleLike();
   }
 
   useEffect( () => {
