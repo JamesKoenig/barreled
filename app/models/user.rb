@@ -8,10 +8,12 @@ class User < ApplicationRecord
 
   has_many :posts,
     foreign_key: :author_id,
-    class_name: :Post
+    class_name: :Post,
+    dependent: :destroy
 
   has_many :likes,
-    class_name: :Like
+    class_name: :Like,
+    dependent: :destroy
 
   has_many :liked_posts,
     through: :likes,
