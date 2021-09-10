@@ -5,11 +5,23 @@ import React, {
 
 export default ({ postId, isLiked, toggleLike }) => {
   const [classes,setClasses] = useState("material-icons md-inactive");
-  const likerOnClick = event => {
-    event.stopPropagation();
-    console.log(isLiked);
-    toggleLike();
+
+  const onlyOnce = callback => {
+    let blocked = false;
+    const wrapped = (...args) => {
+      if(!blocked) {
+          blocked = true;
+          return callback(...args);
+      }
+    }
+    return wrapped;
   }
+
+  //onlyOnce is run-again every time the props change
+  const likerOnClick = onlyOnce( event => {
+    event.stopPropagation();
+    toggleLike();
+  });
 
   useEffect( () => {
     setClasses(`material-icons${
