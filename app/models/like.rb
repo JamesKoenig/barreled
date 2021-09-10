@@ -22,9 +22,28 @@ class Like < ApplicationRecord
     end
 
     if res
+      update_total_likes if post
       @destroyed = true
       freeze
     end
     return res
+  end
+
+  def save
+    if super()
+      update_total_likes
+    else
+      false
+    end
+  end
+
+  private
+  def update_total_likes
+      post.total_likes =
+        Post.left_outer_joins(:likes)
+            .where(posts: { id: post.id })
+            .group("posts.id")
+        .pluck(Arel.sql("count(*)"))[0]
+      post.save
   end
 end
