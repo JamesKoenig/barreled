@@ -9,7 +9,6 @@ class Api::LikesController < ApplicationController
 
     @like = Like.new(user_id: current_user.id, post_id: post.id)
     if @like.save
-      update_total_likes(post)
       redirect_to api_post_url(params[:post_id]), status: :see_other
     else
       render json: @like.errors.full_messages, status: 400
@@ -25,23 +24,9 @@ class Api::LikesController < ApplicationController
     end
 
     if like.destroy
-      post = Post.find(params[:post_id])
-      update_total_likes(post)
       redirect_to api_post_url(params[:post_id]), status: :see_other
     else
       render json: ["unable to unlike post"], status: 400
     end
-  end
-
-  private
-
-  def update_total_likes(post)
-    post.total_likes =
-      Post.left_outer_joins(:likes)
-          .where(posts: { id: post.id })
-          .group("posts.id")
-          .pluck("count(likes.user_id)")[0]
-    # the [0] above is inelegant but got the job done for now...
-    post.save!
   end
 end
