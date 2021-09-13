@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory,useLocation } from 'react-router-dom';
 import EtcButton from './post_etc';
+import TotalLikes from '../likes/total_likes';
 import LikeButton from '../likes/like_button_container';
 
 export default ({ post, author }) => {
@@ -30,7 +31,7 @@ export default ({ post, author }) => {
         <p className="post-text">{post.body}</p>
       </div>
       <footer className="post-properties">
-        <p>{`${post.totalLikes} likes`}</p>
+        <TotalLikes postId={post.id} />
         <LikeButton postId={post.id} />
       </footer>
     </div>
