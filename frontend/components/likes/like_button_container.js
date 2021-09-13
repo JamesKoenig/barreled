@@ -3,10 +3,9 @@ import { toggleLike } from '../../actions/like_actions';
 
 import LikeButton from './like_button';
 
-const mSTP = ({ entities: { posts } }, { postId } ) => {
-  return {
+const mSTP = ({ entities: { posts } }, { postId } ) => ({
   isLiked: posts[postId] ? posts[postId].isLiked : false,
-}};
+});
 
 const mDTP = {
   toggleLike,
