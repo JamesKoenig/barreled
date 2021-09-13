@@ -24,3 +24,12 @@
     background: none;
     border: none;
 }
+
+.total-likes-number {
+    padding-right: 5px;
+    font-family: $number-weight;
+}
+
+.total-likes-descriptor {
+    font-family: $likes-descriptor;
+}

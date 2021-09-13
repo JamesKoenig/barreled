@@ -6,19 +6,19 @@ const mSTP = ({ entities: { posts } }, { postId }) => ({
 })
 
 const pluralizeLike = n =>
-    n === 1 ? "like" : "likes"
+    n === 1 ? "Like" : "Likes"
 
 const TotalLikes = ({ totalLikes }) => (
   <span className="total-likes-counter">
     { totalLikes > 0 ? (
-        <h3>
+        <p>
           <span className="total-likes-number">
             {totalLikes}
           </span>
           <span className="total-likes-descriptor">
             {pluralizeLike(totalLikes)}
           </span>
-        </h3>
+        </p>
       ) : null
     }
   </span>
