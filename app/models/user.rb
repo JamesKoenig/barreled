@@ -79,4 +79,35 @@ class User < ApplicationRecord
     self.save!
     self.session_token
   end
+
+  def feed_items
+    feed.joins(<<~SQL
+        JOIN
+          users AS whos ON
+            whos.id = feeds.who
+      SQL
+      ).joins(<<~SQL
+        LEFT OUTER JOIN
+          posts ON
+            posts.id = feeds.post_id
+      SQL
+      ).joins(<<~SQL
+        LEFT OUTER JOIN
+          likes ON
+              feeds.post_id = likes.post_id
+            AND
+              feeds.user_id = likes.user_id
+      SQL
+      ).select(
+        :created_at,
+        :who,
+        :action,
+        :post_id,
+        :username,
+        :body,
+        :author_id,
+        :total_likes,
+        Arel.sql('likes.user_id IS NOT NULL as post_liked')
+      )
+  end
 end
