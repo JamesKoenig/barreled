@@ -27,3 +27,6 @@ public/assets
 
 # ignore byebug history
 .byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

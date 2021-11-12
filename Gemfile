@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 # must be in top level for hiroku
 gem 'jquery-rails'
 
+gem "aws-sdk-s3"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
