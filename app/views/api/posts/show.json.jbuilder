@@ -4,6 +4,7 @@ json.posts do
   json.set! @post.id do
     json.extract! @post, :id, :body, :author_id, :total_likes
     json.isLiked  @post.post_liked
+    json.photoUrl @post.photo.attached? ? url_for(@post.photo) : nil
     json.dateTime @post.created_at
   end
 end
