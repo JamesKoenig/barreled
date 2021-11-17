@@ -33,3 +33,7 @@
 .total-likes-descriptor {
     font-family: $likes-descriptor;
 }
+
+.post-content img {
+    max-width: 100%;
+}
