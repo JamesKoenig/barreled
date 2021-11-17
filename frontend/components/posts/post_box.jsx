@@ -28,6 +28,12 @@ export default ({ post, author }) => {
         <EtcButton />
       </header>
       <div className="post-content">
+        {
+            post.photoUrl ?
+                <img src={post.photoUrl} />
+              :
+                null
+        }
         <p className="post-text">{post.body}</p>
       </div>
       <footer className="post-properties">
