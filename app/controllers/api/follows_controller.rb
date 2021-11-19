@@ -4,13 +4,13 @@ class Api::FollowsController < ApplicationController
 
     # error conditions, maybe some of these can be validations
     if !logged_in?
-      render json: ["not logged in"], status: 400
+      render json: ["not logged in"], status: :unauthorized
       return
     elsif !user
       render json: ["user not found"], status: 404
       return
     elsif current_user.id == user.id
-      render json: ["cannot follow yourself"], status: 400
+      render json: ["you cannot follow yourself"], status: 400
       return
     end
     @follow = Follow.new(follower: current_user, followed: user)
@@ -22,5 +22,21 @@ class Api::FollowsController < ApplicationController
   end
 
   def destroy
+    follow = Follow.find_by follower: current_user,
+                            followed_id: params[:user_id]
+
+    if !follow
+      render json: ["you have not followed that user"], status: :not_found
+      return
+    elsif current_user.id == params[:user_id]
+      render json: ["you cannot unfollow yourself 😟"],
+             status: :method_not_allowed
+    end
+
+    if follow.destroy
+      render json: ["success"], status: :accepted
+    else
+      render json: ["unable to unfollow user"], status: 400
+    end 
   end
 end
