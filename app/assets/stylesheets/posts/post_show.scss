@@ -5,6 +5,7 @@
     background-color: $base-bg;
     display: flex;
     justify-content: space-between;
+    overflow-y: auto;
 }
 
 .post-show-side {
