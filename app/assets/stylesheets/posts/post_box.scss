@@ -20,6 +20,11 @@
     cursor: pointer;
 }
 
+.post-misc {
+    display: flex;
+    flex-direction: row;
+}
+
 .post-like-button {
     background: none;
     border: none;
