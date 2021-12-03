@@ -24,8 +24,10 @@ export default ({ post, author }) => {
     <div className="post-display"
          onClick={boxOnClick} >
       <header className="post-header">
-        <h3 className="author-name">{author.username}</h3>
-        <EtcButton />
+        <div>
+            <h3 className="author-name">{author.username}</h3>
+        </div>
+        <p>follow button goes here</p>
       </header>
       <div className="post-content">
         {
@@ -38,7 +40,10 @@ export default ({ post, author }) => {
       </div>
       <footer className="post-properties">
         <TotalLikes postId={post.id} />
-        <LikeButton postId={post.id} />
+        <span className="post-misc">
+          <LikeButton postId={post.id} />
+          <p>share button goes here</p>
+        </span>
       </footer>
     </div>
   )
