@@ -2,14 +2,17 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: $base-bg;
+    background-image:
+        linear-gradient(
+            to right,
+            $dark-bg  0%,
+            $base-bg 15%,
+            $base-bg 85%,
+            $dark-bg 100%
+        );
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     overflow-y: auto;
-}
-
-.post-show-side {
-    width: 300px;
 }
 
 .post-show-centerize>.post-display {

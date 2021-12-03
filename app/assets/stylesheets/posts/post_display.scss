@@ -21,15 +21,3 @@
     justify-content: space-between;
     padding: 8px 24px;
 }
-
-.post-show-side {
-    width: 300px;
-}
-
-.post-show-side {
-    background-image: linear-gradient(to left, $base-bg, rgba(0,0,0,20%));
-}
-
-.post-show-side:last-child {
-    background-image: linear-gradient(to right, $base-bg, rgba(0,0,0,20%));
-}
