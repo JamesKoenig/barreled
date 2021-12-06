@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory,useLocation } from 'react-router-dom';
-import EtcButton from './post_etc';
+import PostFollowButton from './post_follow_button';
 import TotalLikes from '../likes/total_likes';
 import LikeButton from '../likes/like_button_container';
 
