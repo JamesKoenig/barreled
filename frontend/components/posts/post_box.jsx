@@ -27,7 +27,7 @@ export default ({ post, author }) => {
         <div>
             <h3 className="author-name">{author.username}</h3>
         </div>
-        <p>follow button goes here</p>
+        <PostFollowButton />
       </header>
       <div className="post-content">
         {
