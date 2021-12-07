@@ -33,3 +33,6 @@ export const unfollow = userId => dispatch =>
         dispatch(followError(errors[0]))
       }
     )
+
+export const toggleFollow = followState => userId => dispatch =>
+  ( actionFn => actionFn(userId) )(followState ? unfollow : follow)
