@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router';
 
-export default ( ) => {
+export default ( isFollowed, toggleFollowCb ) => {
 
   const postFollowOnClick = event => {
     event.stopPropagation();
@@ -12,8 +12,15 @@ export default ( ) => {
     alert("follow user action goes here");
   }
 
+  const iconStr =
+    isFollowed ? "person_add_alt" : "how_to_reg";
+
   return (
-    <button className="post-etc"
-            onClick={postFollowOnClick}>follow</button>
+    <button className="user-follow-button"
+            onClick={postFollowOnClick}>
+      <span className="material-icons md-dark">
+        { iconStr }
+      </span>
+    </button>
   )
 }
