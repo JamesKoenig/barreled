@@ -28,7 +28,7 @@ class Api::FollowsController < ApplicationController
     if !follow
       render json: ["you have not followed that user"], status: :not_found
       return
-    elsif current_user.id == params[:user_id]
+    elsif current_user.id == params[:user_id].to_i
       render json: ["you cannot unfollow yourself 😟"],
              status: :method_not_allowed
     end
