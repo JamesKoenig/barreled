@@ -1,4 +1,22 @@
 class Api::FollowsController < ApplicationController
+  def show
+    current_user_id = current_user.id
+    followed_id = params[:user_id].to_i
+
+    follow = Follow.find_by(
+        follower_id: current_user_id,
+        followed_id: followed_id
+      )
+
+    @follow_info = {
+      user_id: followed_id,
+      is_followed: !!follow,
+      hidden_follow: followed_id == current_user_id,
+    }
+
+    render :show
+  end
+
   def create
     user = User.find(params[:user_id])
 
@@ -15,9 +33,9 @@ class Api::FollowsController < ApplicationController
     end
     @follow = Follow.new(follower: current_user, followed: user)
     if @follow.save
-      render json: ["success!"], status: :created
+      redirect_to api_user_follow_url(params[:user_id]), status: :see_other
     else
-      render json: @like.errors.full_messages, status: 400
+      render json: @follow.errors.full_messages, status: 400
     end
   end
 
@@ -34,7 +52,7 @@ class Api::FollowsController < ApplicationController
     end
 
     if follow.destroy
-      render json: ["success"], status: :accepted
+      redirect_to api_user_follow_url(params[:user_id]), status: :see_other
     else
       render json: ["unable to unfollow user"], status: 400
     end 
