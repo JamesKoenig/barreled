@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory,useLocation } from 'react-router-dom';
-import PostFollowButton from './post_follow_button';
+import PostFollowButton from './post_follow_button_container';
 import TotalLikes from '../likes/total_likes';
 import LikeButton from '../likes/like_button_container';
 
@@ -27,7 +27,9 @@ export default ({ post, author }) => {
         <div>
             <h3 className="author-name">{author.username}</h3>
         </div>
-        <PostFollowButton />
+        <PostFollowButton
+          authorId={author.id}
+          isFollowed={author.isFollowed} />
       </header>
       <div className="post-content">
         {
