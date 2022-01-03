@@ -1,19 +1,27 @@
-import React from 'react';
+import React, {
+  useEffect,
+} from 'react';
+
 import {
   Switch,
   Route
 } from 'react-router';
 
-export default ( isFollowed, toggleFollowCb ) => {
+import onlyOnce from '../../utils/only_once';
 
+export default ( { authorId, isHidden, isFollowed, fetchFollowState } ) => {
   const postFollowOnClick = event => {
     event.stopPropagation();
     //placeholder
-    alert("follow user action goes here");
+    console.log("whoops!");
   }
 
   const iconStr =
-    isFollowed ? "person_add_alt" : "how_to_reg";
+    isFollowed ? "how_to_reg" : "person_add_alt";
+
+  useEffect(() => {
+    fetchFollowState();
+  }, []);
 
   return (
     <button className="user-follow-button"
