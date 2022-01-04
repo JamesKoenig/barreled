@@ -29,7 +29,8 @@ export default ({ post, author }) => {
         </div>
         <PostFollowButton
           authorId={author.id}
-          isFollowed={author.isFollowed} />
+          isFollowed={author.isFollowed}
+          isHidden={author.hiddenFollow} />
       </header>
       <div className="post-content">
         {

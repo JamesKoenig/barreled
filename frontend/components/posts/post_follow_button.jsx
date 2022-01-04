@@ -28,7 +28,7 @@ export default ( {
     fetchFollowState();
   }, []);
 
-  return (
+  return isHidden ? null : (
     <button className="user-follow-button post-interaction-button"
             onClick={postFollowOnClick}>
       <span className="material-icons md-dark">
