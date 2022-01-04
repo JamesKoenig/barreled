@@ -45,5 +45,16 @@ export const fetchFollowState = userId => dispatch =>
   getFollowState(userId)
     .then(status => dispatch(followStatus(status)))
 
-export const toggleFollow = followState => userId => dispatch =>
-  ( actionFn => actionFn(userId) )(followState ? unfollow : follow)
+/* higher order function  that takes a bool, userid, and the redux dispatch,
+ * and returns a nullary function that will unfollow (& dispatch)
+ * a user if they're not followed, and follow them if they are
+ *
+ * should be instantiated every time the followState changes as part of
+ *  mapDispatchToProps' default behavior.  so remember this if you change the
+ *  didUpdate behavior
+ */
+export const toggleFollow = ( followState, userId, dispatch ) =>
+  ( actionFn =>
+    () =>
+      dispatch(actionFn(userId))
+  )(followState ? unfollow : follow)
