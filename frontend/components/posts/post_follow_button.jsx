@@ -16,10 +16,10 @@ export default ( {
   fetchFollowState,
   toggleFollow,
 } ) => {
-  const postFollowOnClick = event => {
+  const postFollowOnClick = onlyOnce( event => {
     event.stopPropagation();
     toggleFollow();
-  }
+  });
 
   const iconStr =
     isFollowed ? "how_to_reg" : "person_add_alt";
