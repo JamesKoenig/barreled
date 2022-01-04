@@ -21,7 +21,7 @@ export default ({ postId, isLiked, toggleLike }) => {
   }, [postId, isLiked]);
 
   return (
-    <button className='post-like-button'
+    <button className='post-like-button post-interaction-button'
             onClick={ likerOnClick }>
       <span className={classes}>
         favorite

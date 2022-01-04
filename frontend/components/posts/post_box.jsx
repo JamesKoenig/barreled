@@ -44,7 +44,7 @@ export default ({ post, author }) => {
         <TotalLikes postId={post.id} />
         <span className="post-misc">
           <LikeButton postId={post.id} />
-          <button className="post-share-button">
+          <button className="post-share-button post-interaction-button">
             <span className="material-icons md-dark">
               link
             </span>

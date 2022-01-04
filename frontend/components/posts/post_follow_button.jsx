@@ -29,7 +29,7 @@ export default ( {
   }, []);
 
   return (
-    <button className="user-follow-button"
+    <button className="user-follow-button post-interaction-button"
             onClick={postFollowOnClick}>
       <span className="material-icons md-dark">
         { iconStr }
