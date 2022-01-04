@@ -9,11 +9,16 @@ import {
 
 import onlyOnce from '../../utils/only_once';
 
-export default ( { authorId, isHidden, isFollowed, fetchFollowState } ) => {
+export default ( {
+  authorId,
+  isHidden,
+  isFollowed,
+  fetchFollowState,
+  toggleFollow,
+} ) => {
   const postFollowOnClick = event => {
     event.stopPropagation();
-    //placeholder
-    console.log("whoops!");
+    toggleFollow();
   }
 
   const iconStr =
