@@ -20,8 +20,7 @@ class PostForm extends React.Component {
   }
 
   _update(event) {
-    console.log("form updated!");
-    this.setState( { body: event.currentTarget.value } );
+    this.setState( { body: event.currentTarget.textContent } );
   }
 
   render() {
@@ -34,13 +33,15 @@ class PostForm extends React.Component {
           </header>
           <div className="post-content" id="post-form-content-field">
             <div className="post-text post-form-input-field"
-                 contentEditable="true">
+                 contentEditable="true"
+                 onInput={this._update}>
             </div>
           </div>
           <footer className="post-properties">
             <div></div>
             <div>
-              <p>submit button goes here</p>
+              <input type="submit"
+                     value={this.props.formType} />
             </div>
           </footer>
         </div>
