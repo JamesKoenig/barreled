@@ -5,6 +5,7 @@ class PostForm extends React.Component {
     super(props);
     this.state = {};
     this.state["body"] = props.body || '';
+    this.state["id"] = props.id;
     this._update = this._update.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
@@ -13,6 +14,7 @@ class PostForm extends React.Component {
     event.preventDefault();
     this.props.action(this.state)
       .then( () => {
+        console.log(this.props.errors);
         if(this.props.errors.length === 0) {
           this.props.closeModal();
         }
@@ -33,8 +35,10 @@ class PostForm extends React.Component {
           </header>
           <div className="post-content" id="post-form-content-field">
             <div className="post-text post-form-input-field"
-                 contentEditable="true"
+                 contentEditable
+                 suppressContentEditableWarning
                  onInput={this._update}>
+              { this.props.body || null }
             </div>
           </div>
           <footer className="post-properties">

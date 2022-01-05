@@ -28,11 +28,9 @@ class Api::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.author != current_user.id
+    if @post.author.id != current_user.id
       render json: ["cannot edit another user's posts"], status: 401
-    end
-
-    if @post.update(body: params[:post][:body])
+    elsif @post.update(body: params[:post][:body])
       render :show
     else
       render json: @post.errors.full_messages, status: 422
