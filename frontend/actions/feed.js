@@ -1,6 +1,6 @@
-import { fetchFeed } from '../utils/feed_notification_utils';
-import { receivePosts } from './posts';
-import { receiveUsers } from './users';
+import { fetchFeed } from "../utils/feed_notification_utils";
+import { receivePosts } from "./posts";
+import { receiveUsers } from "./users";
 
 export const RECEIVE_FEED = "RECEIVE_FEED";
 

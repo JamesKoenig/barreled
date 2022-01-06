@@ -3,9 +3,9 @@ import {
   postPost,
   patchPost,
   deletePost,
-} from '../utils/posts';
-import { receiveUsers } from './users';
-import * as post_errors from './post_errors';
+} from "../utils/posts";
+import { receiveUsers } from "./users";
+import * as post_errors from "./post_errors";
 
 const {
   receivePostErrors:   receiveErrors,
@@ -16,9 +16,14 @@ const {
 export const RECEIVE_POSTS       = "RECEIVE_POSTS";
 export const REMOVE_POST         = "REMOVE_POST";
 
-export const receivePosts = posts => ({
+const receivePosts = posts => ({
   type: RECEIVE_POSTS,
   posts
+});
+
+const dispRemovePost = postId => ({
+  type: REMOVE_POST,
+  postId,
 });
 
 export const getPost = postId => dispatch =>
@@ -26,8 +31,8 @@ export const getPost = postId => dispatch =>
     .then( ({ posts, users }) => {
       dispatch(receivePosts(posts));
       dispatch(receiveUsers(users));
-    }, error =>
-        dispatch(postNotFoundError())
+    }, () =>
+      dispatch(postNotFoundError())
     );
 
 /* this pattern could technically be used for the other actions as well,
@@ -46,18 +51,18 @@ const postAction = utilAction => post => dispatch =>
     .then(
       () => dispatch(clearErrors()),
       error => dispatch(receiveErrors(error.responseJSON))
-    )
+    );
 
 export const createPost = postAction(postPost);
 export const updatePost = postAction(patchPost);
 
-const removePost = postId => dispatch =>
+export const removePost = postId => dispatch =>
   deletePost(postId)
-    .then( ({ posts }) => {
+    .then( () => {
       /* I could technically do
        *   Object.keys(posts)[0]
        * but that looks ugly & we already know we were successful since
        * we're in a then
        */
-      dispatch(removePost(postId))
+      dispatch(dispRemovePost(postId));
     });

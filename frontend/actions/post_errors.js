@@ -13,4 +13,4 @@ export const clearPostErrors = () => ({
 
 export const receivePostNotFound = () => ({
   type: RECEIVE_POST_NOT_FOUND,
-})
+});
