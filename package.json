@@ -28,7 +28,8 @@
   },
   "scripts": {
     "build:dev": "webpack --mode=development",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "lint": "eslint frontend"
   },
   "repository": {
     "type": "git",
@@ -40,5 +41,9 @@
   "bugs": {
     "url": "https://github.com/JamesKoenig/barreled/issues"
   },
-  "homepage": "https://github.com/JamesKoenig/barreled#readme"
+  "homepage": "https://github.com/JamesKoenig/barreled#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-plugin-react": "^7.28.0"
+  }
 }
