@@ -16,7 +16,9 @@ const {
 export const RECEIVE_POSTS       = "RECEIVE_POSTS";
 export const REMOVE_POST         = "REMOVE_POST";
 
-const receivePosts = posts => ({
+
+/* has to be exported since the feed actions also use this reducer payload */
+export const receivePosts = posts => ({
   type: RECEIVE_POSTS,
   posts
 });
