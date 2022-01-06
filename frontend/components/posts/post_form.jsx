@@ -14,7 +14,6 @@ class PostForm extends React.Component {
     event.preventDefault();
     this.props.action(this.state)
       .then( () => {
-        console.log(this.props.errors);
         if(this.props.errors.length === 0) {
           this.props.closeModal();
         }
