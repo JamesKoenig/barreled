@@ -1,8 +1,9 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import FeedLike from './feed_like';
+import FeedLike from "./feed_like";
 
-const mapStateToProps = ({
+const mapStateToProps = (
+  {
     entities: {
       posts,
       users
@@ -14,6 +15,6 @@ const mapStateToProps = ({
 ) => ({
   user: users[userId],
   post: posts[postId],
-})
+});
 
 export default connect(mapStateToProps)(FeedLike);

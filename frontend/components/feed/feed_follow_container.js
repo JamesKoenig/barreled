@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import FeedFollow from './feed_follow';
+import FeedFollow from "./feed_follow";
 
 const mapStateToProps = (
   {
@@ -13,6 +13,6 @@ const mapStateToProps = (
   }
 ) => ({
   follower: users[userId],
-})
+});
 
 export default connect(mapStateToProps)(FeedFollow);

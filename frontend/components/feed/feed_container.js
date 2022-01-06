@@ -1,14 +1,11 @@
-import   React     from 'react';
-import { connect } from 'react-redux';
-import   Feed      from './feed';
-import { logout  } from '../../actions/session.js';
-import { getFeed } from '../../actions/feed';
+import { connect } from "react-redux";
+import   Feed      from "./feed";
+import { logout  } from "../../actions/session.js";
+import { getFeed } from "../../actions/feed";
 
-const mSTP = ({entities: { feedEntities: feedItems }}) => {
-  return {
-    feedItems,
-  }
-}
+const mSTP = ({entities: { feedEntities: feedItems }}) => ({
+  feedItems,
+});
 
 const mDTP = dispatch => ({
   logout: () => dispatch(logout()),

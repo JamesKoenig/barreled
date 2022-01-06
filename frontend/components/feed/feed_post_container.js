@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import FeedPost from './feed_post';
+import FeedPost from "./feed_post";
 
 const mapStateToProps = ({entities: { posts, users }},
                          { postId, userId }) => ({
