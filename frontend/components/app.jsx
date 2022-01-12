@@ -24,13 +24,10 @@ import {
 } from "react-router-dom";
 
 const postUrlsStrings    = Object.values(postUrls);
-const exploreUrlStrings  = Object.values(sessionUrls);
+const exploreUrlStrings  = Object.values(exploreUrls);
 const sessionUrlsStrings = Object.values(sessionUrls);
 
-const App = () => {
-  const location = useLocation();
-  console.log(location);
-  return (
+const App = () => (
   <>
     <Switch>
       <AuthSplitRoute exact path="/"
@@ -45,7 +42,7 @@ const App = () => {
       <Route exact path={Four04Path}
              component={Four04}
       />
-      { /* <Redirect to="/404" /> */ }
+      <Redirect to="/404" />
     </Switch>
     <Route path={[
       ...postUrlsStrings,
@@ -55,7 +52,6 @@ const App = () => {
       <Header />
     </Route>
   </>
-  );
-};
+);
 
 export default App;
