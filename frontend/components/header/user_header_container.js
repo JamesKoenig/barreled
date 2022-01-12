@@ -1,7 +1,7 @@
-import { connect   } from 'react-redux';
-import { openModal } from '../../actions/modal';
-import { logout    } from '../../actions/session';
-import   Header      from './base_header';
+import { connect   } from "react-redux";
+import { openModal } from "../../actions/modal";
+import { logout    } from "../../actions/session";
+import   Header      from "./base_header";
 
 const mSTP = ({ entities: { posts },
                  session: { currentUserId } }) => ({
@@ -11,7 +11,7 @@ const mSTP = ({ entities: { posts },
 
 const mDTP = (dispatch, {match: { params: { postId } } }) => ({
   navButtons: [
-    ["New Post",() => dispatch(openModal({type: 'newPost'}))],
+    ["New Post",() => dispatch(openModal({type: "newPost"}))],
     ["Logout", () => dispatch(logout())],
   ],
   editPost: ["Edit Post", () => dispatch(
@@ -33,8 +33,8 @@ const mergeProps = ({ currentUserId,
           && posts[postId].authorId === currentUserId ) {
     return { navButtons: [editPost, ...navButtons] };
   } else {
-  return { navButtons };
+    return { navButtons };
   }
-}
+};
 
 export default connect(mSTP,mDTP,mergeProps)(Header);
