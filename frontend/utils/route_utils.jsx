@@ -1,9 +1,9 @@
-import   React        from 'react';
-import { connect }    from 'react-redux';
+import   React        from "react";
+import { connect }    from "react-redux";
 import {
   Redirect,
   Route,
-} from 'react-router-dom';
+} from "react-router-dom";
 
 const mSTP = state => ({
   loggedIn: Boolean(state.session.currentUserId),
@@ -23,10 +23,11 @@ const Either = (bool, exact, path,
 const AuthSplit = ({ loggedIn, exact=undefined, path,
                      left: Left, right: Right, ...rest}) => {
   return Either(loggedIn, exact, path, Left, Right, rest);
-}
+};
 
 const Auth = ({ loggedIn, exact, path, component: Component }) =>
   AuthSplit({ loggedIn,
+              exact,
               path,
               left: props => (<Redirect to="/" {...props} />),
               right: Component });

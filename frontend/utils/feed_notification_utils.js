@@ -1,9 +1,9 @@
 export const fetchFeed = () =>
   $.ajax({
-    url: 'api/feed'
-  })
+    url: "api/feed"
+  });
 
 export const fetchNotifications = () =>
   $.ajax({
-    url: '/api/notifications'
-  })
+    url: "/api/notifications"
+  });

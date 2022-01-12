@@ -1,1 +1,1 @@
-export const SHOW = "/posts/:postId"
+export const SHOW = "/posts/:postId";

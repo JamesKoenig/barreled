@@ -5,8 +5,8 @@ const onlyOnce = callback => {
       blocked = true;
       return callback(...args);
     }
-  }
+  };
   return wrapped;
-}
+};
 
 export default onlyOnce;

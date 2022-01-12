@@ -4,7 +4,7 @@ class StoreArray {
       this.arr = [...arg];
       this.duplicateCheck = new Set();
       this.arr.forEach( element => {
-        this.duplicateCheck.add(this._getDuplicateKey(element))
+        this.duplicateCheck.add(this._getDuplicateKey(element));
       });
       this.last = this.arr.length -1;
     } else {
@@ -52,7 +52,7 @@ class StoreArray {
 
     if(otherLength === 0) return this;
 
-    this.arr.length += (otherLength - this.free_space())
+    this.arr.length += (otherLength - this.free_space());
 
     filteredArr.forEach( element => {
       this.last += 1;
@@ -66,7 +66,7 @@ class StoreArray {
   map( fn=( x => x ) ) {
     let res_arr = new Array(this.last+1);
     for(let index = 0; index <= this.last; index++) {
-      res_arr[index] = fn(this.arr[index])
+      res_arr[index] = fn(this.arr[index]);
     }
     return res_arr;
   }
