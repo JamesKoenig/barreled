@@ -1,12 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
 const mSTP = ({ entities: { posts } }, { postId }) => ({
-    totalLikes: posts[postId] ? posts[postId].totalLikes : 0,
-})
+  totalLikes: posts[postId] ? posts[postId].totalLikes : 0,
+});
 
 const pluralizeLike = n =>
-    n === 1 ? "Like" : "Likes"
+  n === 1 ? "Like" : "Likes";
 
 const TotalLikes = ({ totalLikes }) => (
   <span className="total-likes-counter">
@@ -19,9 +19,8 @@ const TotalLikes = ({ totalLikes }) => (
             {pluralizeLike(totalLikes)}
           </span>
         </p>
-      ) : null
-    }
+    ) : null }
   </span>
-)
+);
 
 export default connect(mSTP)(TotalLikes);

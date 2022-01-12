@@ -1,11 +1,11 @@
 import React, {
-    useEffect,
-    useState,
-} from 'react';
+  useEffect,
+  useState,
+} from "react";
 
-import onlyOnce from '../../utils/only_once';
+import onlyOnce from "../../utils/only_once";
 
-export default ({ postId, isLiked, toggleLike }) => {
+const LikeButton = ({ postId, isLiked, toggleLike }) => {
   const [classes,setClasses] = useState("material-icons md-inactive");
 
   //onlyOnce is run-again every time the props change
@@ -27,5 +27,7 @@ export default ({ postId, isLiked, toggleLike }) => {
         favorite
       </span>
     </button>
-  )
-}
+  );
+};
+
+export default LikeButton;
