@@ -5,7 +5,7 @@ import { Route,
          Link,
          Redirect     } from 'react-router-dom';
 
-import   SplashPane     from './splash_pane_container';
+import   SplashPane     from './splash_pane';
 import   LoginForm      from './login_form_container';
 import   SignupForm     from './signup_form_container';
 import   Landing        from './landing';

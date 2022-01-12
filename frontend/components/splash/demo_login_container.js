@@ -1,8 +1,7 @@
-import   React     from 'react';
-import { connect } from 'react-redux';
-import { login   } from '../../actions/session';
+import { connect } from "react-redux";
+import { login   } from "../../actions/session";
 
-import   DemoLogin from './demo_login';
+import   DemoLogin from "./demo_login";
 
 const demoUser = {
   email: "demo@demo.demo",
