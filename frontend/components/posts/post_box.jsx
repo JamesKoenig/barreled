@@ -36,8 +36,7 @@ const PostBox = ({ post, author }) => {
         {
             post.photoUrl ?
                 <img src={post.photoUrl} />
-              :
-                null
+              : null
         }
         <p className="post-text">{post.body}</p>
       </div>
