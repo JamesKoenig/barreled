@@ -1,10 +1,6 @@
-import   React     from 'react';
-import { connect } from 'react-redux';
-import { Link    } from 'react-router-dom';
-import   Modal     from '../modal/modal_container';
-
-import { LANDING, LOGIN,
-         REGISTER, DEFAULT } from '../../utils/paths/session';
+import   React   from "react";
+import { Link  } from "react-router-dom";
+import   Modal   from "../modal/modal_container";
 
 const NavLinkButton = (url, label) => (
   <Link key={url} to={url}>
@@ -20,7 +16,7 @@ const NavButton = (label, onClick) => (
   </button>
 );
 
-export default ({ navLinks=[], navButtons=[] }) => (
+const BaseHeader = ({ navLinks=[], navButtons=[] }) => (
   <div id="header-container">
     <Modal />
     <header id="header">
@@ -36,3 +32,5 @@ export default ({ navLinks=[], navButtons=[] }) => (
     </header>
   </div>
 );
+
+export default BaseHeader;
