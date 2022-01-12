@@ -1,24 +1,26 @@
-import   React            from 'react';
-import   Splash           from './splash/splash_container';
-import   Feed             from './feed/feed_container';
+import React  from "react";
+import Splash from "./splash/splash_container";
+import Feed   from "./feed/feed_container";
 import {
   AuthRoute,
   AuthSplitRoute,
-} from '../utils/route_utils';
-import { Switch,
-         Redirect,
-         Route          } from 'react-router'
-import PostShow from './posts/show';
-import Four04 from './404/404';
-import * as postUrls    from '../utils/paths/posts';
-import * as sessionUrls from '../utils/paths/session';
-import Header from './header/header';
+} from "../utils/route_utils";
+import {
+  Switch,
+  Redirect,
+  Route
+} from "react-router";
+import PostShow from "./posts/show";
+import Four04 from   "./404/404";
+import * as postUrls    from "../utils/paths/posts";
+import * as sessionUrls from "../utils/paths/session";
+import Header     from "./header/header";
 import Four04Path from "../utils/paths/404";
 
 const postUrlsStrings    = Object.values(postUrls);
 const sessionUrlsStrings = Object.values(sessionUrls);
 
-export default () => (
+const App = () => (
   <>
     <Switch>
       <AuthSplitRoute exact path="/"
@@ -37,4 +39,6 @@ export default () => (
       <Header />
     </Route>
   </>
-)
+);
+
+export default App;

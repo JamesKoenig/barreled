@@ -1,15 +1,15 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import React    from "react";
+import ReactDOM from "react-dom";
 
-import configureStore from './store/store';
-import Root from './components/root';
-import * as SessionActions from './actions/session';
-import * as PostActions    from './actions/posts';
+import configureStore from "./store/store";
+import Root from "./components/root";
+import * as SessionActions from "./actions/session";
+import * as PostActions    from "./actions/posts";
 
-import StoreArray from './utils/store_array';
+import StoreArray from "./utils/store_array";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.getElementById('root');
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
   let preloadedState = undefined;
   if (window.currentUserId) {
     preloadedState = {
