@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.state["body"] = props.body || '';
+    this.state["body"] = props.body || "";
     this.state["id"] = props.id;
     this._update = this._update.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-   _handleSubmit(event) {
+  _handleSubmit(event) {
     event.preventDefault();
     this.props.action(this.state)
       .then( () => {
         if(this.props.errors.length === 0) {
           this.props.closeModal();
         }
-      })
+      });
   }
 
   _update(event) {
@@ -49,8 +49,8 @@ class PostForm extends React.Component {
           </footer>
         </div>
       </form>
-    )
+    );
   }
 }
 
-export default PostForm
+export default PostForm;

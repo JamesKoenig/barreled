@@ -1,6 +1,6 @@
-import React from 'react';
-import { Redirect } from 'react-router';
-import PostBox from './post_box';
+import React from "react";
+import { Redirect } from "react-router";
+import PostBox from "./post_box";
 
 class PostDisplay extends React.Component {
 
@@ -9,9 +9,9 @@ class PostDisplay extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-      if(this.props.postId !== prevProps.postId) {
-          this.props.getPost(this.props.postId);
-      }
+    if(this.props.postId !== prevProps.postId) {
+      this.props.getPost(this.props.postId);
+    }
   }
 
   render() {

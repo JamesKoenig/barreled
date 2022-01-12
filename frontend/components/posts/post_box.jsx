@@ -1,10 +1,10 @@
-import React from 'react';
-import { useHistory,useLocation } from 'react-router-dom';
-import PostFollowButton from './post_follow_button_container';
-import TotalLikes from '../likes/total_likes';
-import LikeButton from '../likes/like_button_container';
+import React from "react";
+import { useHistory,useLocation } from "react-router-dom";
+import PostFollowButton from "./post_follow_button_container";
+import TotalLikes from "../likes/total_likes";
+import LikeButton from "../likes/like_button_container";
 
-export default ({ post, author }) => {
+const PostBox = ({ post, author }) => {
   const history = useHistory();
   const location = useLocation();
 
@@ -18,7 +18,7 @@ export default ({ post, author }) => {
     if( !/\/posts\/.+/.test(location.pathname) ) {
       history.push(`/posts/${post.id}`);
     }
-  }
+  };
 
   return (
     <div className="post-display"
@@ -53,5 +53,7 @@ export default ({ post, author }) => {
         </span>
       </footer>
     </div>
-  )
-}
+  );
+};
+
+export default PostBox;

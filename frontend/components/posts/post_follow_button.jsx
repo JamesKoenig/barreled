@@ -1,16 +1,10 @@
 import React, {
   useEffect,
-} from 'react';
+} from "react";
 
-import {
-  Switch,
-  Route
-} from 'react-router';
+import onlyOnce from "../../utils/only_once";
 
-import onlyOnce from '../../utils/only_once';
-
-export default ( {
-  authorId,
+const PostFollowButton = ( {
   isHidden,
   isFollowed,
   fetchFollowState,
@@ -35,5 +29,7 @@ export default ( {
         { iconStr }
       </span>
     </button>
-  )
-}
+  );
+};
+
+export default PostFollowButton;

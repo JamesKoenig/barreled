@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import PostDisplay from './post_display_container';
+import PostDisplay from "./post_display_container";
 
-export default () => (
+const PostShow = () => (
   <div id="post-show">
     <div className="post-show-centerize">
         <PostDisplay />
     </div>
   </div>
-)
+);
+
+export default PostShow;

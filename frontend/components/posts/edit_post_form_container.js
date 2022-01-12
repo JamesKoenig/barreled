@@ -19,4 +19,3 @@ const mDTP = {
 };
 
 export default withRouter(connect(mSTP,mDTP)(PostForm));
-
