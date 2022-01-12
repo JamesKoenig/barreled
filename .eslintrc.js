@@ -43,5 +43,8 @@ module.exports = {
         "react": {
           "version": "detect"
         }
-    }
+    },
+    "overrides": [{
+        "files": ["*.js", "*.jsx"],
+    }]
 };
