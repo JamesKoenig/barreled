@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users,   only: [ :create, :destroy ] do
       resource :follow, only: [ :create, :destroy, :show ]
     end
+    get 'users/featured', to: 'users#featured'
     resources :notifications, only: :index
     resources :feed, only: :index
     resource  :session, only: [ :create, :destroy, :show ]
