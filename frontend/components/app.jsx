@@ -1,5 +1,5 @@
 import React  from "react";
-import Splash from "./splash/splash_container";
+import Splash from "./splash/splash";
 import Feed   from "./feed/feed_container";
 import {
   AuthRoute,
