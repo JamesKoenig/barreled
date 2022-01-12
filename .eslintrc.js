@@ -47,7 +47,8 @@ module.exports = {
         ],
         "no-trailing-spaces": [
           "error",
-        ]
+        ],
+        "react/prop-types": 0,
     },
     "settings": {
         "react": {
