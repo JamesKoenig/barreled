@@ -22,7 +22,16 @@ module.exports = {
         "indent": [
             "warn",
             2,
-            { "SwitchCase": 1 },
+            { "SwitchCase": 1,
+              // https://github.com/airbnb/javascript/blob/e9fff7adbf6dd4e3723c12849c407aafd429cf0f/packages/eslint-config-airbnb-base/rules/style.js#L141
+              "ignoredNodes": [
+                'JSXElement', 'JSXElement > *', 'JSXAttribute',
+                'JSXIdentifier', 'JSXNamespacedName', 'JSXMemberExpression',
+                'JSXSpreadAttribute', 'JSXExpressionContainer',
+                'JSXOpeningElement', 'JSXClosingElement', 'JSXText',
+                'JSXEmptyExpression', 'JSXSpreadChild'
+              ],
+            },
         ],
         "linebreak-style": [
             "error",
