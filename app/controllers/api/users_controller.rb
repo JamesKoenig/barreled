@@ -21,13 +21,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def featured
+    render json: ["stub"]
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
-  end
-
-  def featured
-    render json: ["stub"]
   end
 end
