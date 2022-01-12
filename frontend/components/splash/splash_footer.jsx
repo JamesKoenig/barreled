@@ -1,16 +1,9 @@
-import   React     from 'react';
-import { connect } from 'react-redux';
+import   React     from "react";
 
-const SplashFooter = props => (
+const SplashFooter = () => (
   <footer id="splash-footer">
-    <p>footer!</p> 
+    <p>footer!</p>
   </footer>
 );
 
-const mSTP = state => ({
-});
-
-const mDTP = dispatch => ({
-});
-
-export default connect(mSTP, mDTP)(SplashFooter);
+export default SplashFooter;

@@ -1,7 +1,7 @@
-import   React  from 'react';
-import { Link } from 'react-router-dom';
+import   React  from "react";
+import { Link } from "react-router-dom";
 
-export default () => (
+const Landing = () => (
   <div>
     <Link to="/signup">
       <button className="blue">Get Started</button>
@@ -10,4 +10,6 @@ export default () => (
       <button className="dark">Log In</button>
     </Link>
   </div>
-)
+);
+
+export default Landing;

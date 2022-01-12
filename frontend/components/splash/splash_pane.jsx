@@ -1,14 +1,9 @@
-import   React        from 'react';
-import { Route,
-         Switch,
-         Link,
-         useLocation } from 'react-router-dom';
+import   React        from "react";
 
-import   Header from '../header/header';
-import   SplashFooter   from './splash_footer';
-import   DemoLoginner   from './demo_login_container';
+import SplashFooter from "./splash_footer";
+import DemoLoginner from "./demo_login_container";
 
-export default ({ AuthForm, splashText }) => (
+const SplashPane = ({ AuthForm, splashText }) => (
   <div id="splash-pane">
     <div className="slide-flexer">
         <div className="splash-box">
@@ -23,4 +18,6 @@ export default ({ AuthForm, splashText }) => (
       <SplashFooter />
     </div>
   </div>
-)
+);
+
+export default SplashPane;

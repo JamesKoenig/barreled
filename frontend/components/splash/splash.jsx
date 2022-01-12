@@ -1,25 +1,18 @@
-import   React          from 'react';
-import { Route,
-         Switch,
-         useLocation,
-         Link,
-         Redirect     } from 'react-router-dom';
+import {
+  Switch,
+  useLocation,
+} from "react-router-dom";
+import React      from "react";
+import SplashPane from "./splash_pane";
+import LoginForm  from "./login_form_container";
+import SignupForm from "./signup_form_container";
+import Landing    from "./landing";
 
-import   SplashPane     from './splash_pane';
-import   LoginForm      from './login_form_container';
-import   SignupForm     from './signup_form_container';
-import   Landing        from './landing';
-
-import { LANDING, LOGIN,
-         REGISTER } from '../../utils/paths/session';
-
-const DEFAULT = "/404";
-
-const NavButton = (url, label) => (
-  <Link key={url} to={url}>
-    <button className="header-link">{label}</button>
-  </Link>
-);
+import {
+  LANDING,
+  LOGIN,
+  REGISTER,
+} from "../../utils/paths/session";
 
 const cases = {
   [LANDING]: {
@@ -31,10 +24,12 @@ const cases = {
   [REGISTER]: {
     AuthForm: SignupForm,
   },
-}
+};
 
-export default ({ location }) => (
+const Splash = () => (
   <Switch>
     <SplashPane {...cases[useLocation().pathname]} />
   </Switch>
-)
+);
+
+export default Splash;

@@ -1,11 +1,11 @@
-import React      from 'react';
-import AuthErrors from './auth_errors_container';
+import React      from "react";
+import AuthErrors from "./auth_errors_container";
 
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    props.fields.forEach( ({ label }) => this.state[label] = '');
+    props.fields.forEach( ({ label }) => this.setState( { [label]: "" }) );
     this.fields       = this._mapPropsToFields(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,17 +16,17 @@ class AuthForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let submitVersion = {}
+    let submitVersion = {};
     Object.keys(this.state).forEach( capitalizedField => {
       let field = capitalizedField.toLowerCase();
-      submitVersion[field] = this.state[capitalizedField]
+      submitVersion[field] = this.state[capitalizedField];
     });
     this.props.action(submitVersion);
   }
 
   _mapPropsToFields(props) {
     return props.fields.map( ({ label, type }) =>
-      this._renderField(label,type) 
+      this._renderField(label,type)
     );
   }
 
@@ -34,7 +34,7 @@ class AuthForm extends React.Component {
     return e => this.setState({ [label]: e.currentTarget.value });
   }
 
-  _renderField(label, type='text') {
+  _renderField(label, type="text") {
     return (
       <div key={label}
            className="input-container">
@@ -43,8 +43,8 @@ class AuthForm extends React.Component {
                value={this.state.label}
                onChange={this._update(label)} />
       </div>
-    )
-  };
+    );
+  }
 
   render() {
     return (
@@ -52,11 +52,11 @@ class AuthForm extends React.Component {
         <AuthErrors />
         {this.fields}
         <button className="blue"
-                type='submit'>{this.props.formType}</button> 
+                type='submit'>{this.props.formType}</button>
       </form>
-    )
+    );
   }
 }
 
-export default AuthForm
+export default AuthForm;
 

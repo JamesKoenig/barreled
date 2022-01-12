@@ -1,16 +1,15 @@
-import   React           from 'react';
-import { connect       } from 'react-redux';
-import   AuthForm        from './auth_form';
+import { connect       } from "react-redux";
+import   AuthForm        from "./auth_form";
 import { createNewUser,
-         clearErrs     } from '../../actions/session.js';
+         clearErrs     } from "../../actions/session.js";
 
-const mSTP = state => ({
+const mSTP = () => ({
   fields: [
-    { label: 'Email', type: 'email' },
-    { label: 'Password', type: "password" },
-    { label: 'Username' }
+    { label: "Email", type: "email" },
+    { label: "Password", type: "password" },
+    { label: "Username" }
   ],
-  formType: 'Sign Up'
+  formType: "Sign Up"
 });
 
 const mDTP = dispatch => ({
