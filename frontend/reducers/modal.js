@@ -13,4 +13,4 @@ export default (state=_defaultState, action) => {
     default:
       return state;
   }
-}
+};

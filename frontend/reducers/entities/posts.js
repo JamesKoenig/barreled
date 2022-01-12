@@ -1,8 +1,8 @@
-import { RECEIVE_POSTS } from '../../actions/posts';
+import { RECEIVE_POSTS } from "../../actions/posts";
 import {
   RECEIVE_LIKE,
   REMOVE_LIKE,
-} from '../../actions/like_actions';
+} from "../../actions/like_actions";
 
 export default (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -14,4 +14,4 @@ export default (oldState = {}, action) => {
     default:
       return oldState;
   }
-}
+};

@@ -1,7 +1,6 @@
-import   StoreArray            from '../../utils/store_array';
-import { RECEIVE_FEED } from '../../actions/feed';
+import { RECEIVE_FEED } from "../../actions/feed";
 
-const _defaultState = []
+const _defaultState = [];
 
 const feedReducer = (oldState= _defaultState, { type, feedEntities }) => {
   Object.freeze(oldState);
@@ -11,7 +10,6 @@ const feedReducer = (oldState= _defaultState, { type, feedEntities }) => {
     default:
       return oldState;
   }
-}
+};
 
 export default feedReducer;
-

@@ -1,7 +1,7 @@
 import {
   RECEIVE_FOLLOW_ERROR,
   CLEAR_FOLLOW_ERROR,
-} from '../actions/follow_actions';
+} from "../actions/follow_actions";
 
 export default ( state = null, action ) => {
   Object.freeze(state);
@@ -13,4 +13,4 @@ export default ( state = null, action ) => {
     default:
       return state;
   }
-}
+};
