@@ -1,8 +1,10 @@
-import React from 'react';
+import React from "react";
 
-export default ({follower}) => {
+const FeedFollow = ({follower}) => {
   if(!follower) return null;
   return (
     <p>{follower.username} followed you</p>
-  )
-}
+  );
+};
+
+export default FeedFollow;

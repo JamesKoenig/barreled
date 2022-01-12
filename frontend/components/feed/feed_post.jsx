@@ -1,10 +1,11 @@
-import React, { useEffect }  from 'react';
-import { useHistory } from 'react-router-dom';
-import PostBox from '../posts/post_box';
+import React from "react";
+import PostBox from "../posts/post_box";
 
-export default ({post,author,postId}) => {
+const FeedPost = ({post,author}) => {
   if(!post || !author) return null;
   return (
     <PostBox post={post} author={author} />
   );
-}
+};
+
+export default FeedPost;
