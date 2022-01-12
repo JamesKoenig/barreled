@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import { toggleLike } from '../../actions/like_actions';
+import { connect } from "react-redux";
+import { toggleLike } from "../../actions/like_actions";
 
-import LikeButton from './like_button';
+import LikeButton from "./like_button";
 
 const mSTP = ({ entities: { posts } }, { postId } ) => ({
   isLiked: posts[postId] ? posts[postId].isLiked : false,
@@ -22,7 +22,7 @@ const mergeProps = ( stateProps, dispProps, ownProps ) => {
     ...ownProps,
     ...stateProps,
     toggleLike: () => dispToggleLike(postId, isLiked),
-  })
+  });
 };
 
 export default connect(mSTP, mDTP, mergeProps)(LikeButton);
