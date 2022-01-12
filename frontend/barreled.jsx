@@ -5,8 +5,9 @@ import configureStore from "./store/store";
 import Root from "./components/root";
 import * as SessionActions from "./actions/session";
 import * as PostActions    from "./actions/posts";
-
-import StoreArray from "./utils/store_array";
+import * as FeedActions    from "./actions/feed";
+import * as FeedUtils      from "./utils/feed_notification_utils";
+import * as PostUtils      from "./utils/posts";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -20,11 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const store = configureStore(preloadedState);
 
-  window.store          = store;
-  window.SessionActions = SessionActions;
-  window.PostActions    = PostActions;
+  Object.assign(window, {
+    store,
+    SessionActions,
+    PostActions,
+    FeedActions,
+    PostUtils,
+    FeedUtils,
+  });
 
-  window.StoreArray = StoreArray;
 
   ReactDOM.render(<Root store={store} />, root);
 });
