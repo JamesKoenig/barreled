@@ -1,4 +1,5 @@
 import { fetchFeed } from "../utils/feed_notification_utils";
+import { fetchPosts } from "../utils/posts";
 import { receivePosts } from "./posts";
 import { receiveUsers } from "./users";
 
@@ -11,6 +12,15 @@ export const receiveFeed = feedEntities => ({
 
 export const getFeed = () => dispatch =>
   fetchFeed()
+    .then( ({feedItems,posts,users}) => {
+      dispatch(receiveFeed(feedItems));
+      dispatch(receivePosts(posts));
+      dispatch(receiveUsers(users));
+    });
+
+// if I were to have to write this a third time... I'd abstract it
+export const getIndex = () => dispatch =>
+  fetchPosts()
     .then( ({feedItems,posts,users}) => {
       dispatch(receiveFeed(feedItems));
       dispatch(receivePosts(posts));

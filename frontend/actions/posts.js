@@ -3,6 +3,7 @@ import {
   postPost,
   patchPost,
   deletePost,
+
 } from "../utils/posts";
 import { receiveUsers } from "./users";
 import * as post_errors from "./post_errors";
@@ -15,7 +16,6 @@ const {
 
 export const RECEIVE_POSTS       = "RECEIVE_POSTS";
 export const REMOVE_POST         = "REMOVE_POST";
-
 
 /* has to be exported since the feed actions also use this reducer payload */
 export const receivePosts = posts => ({
@@ -68,3 +68,6 @@ export const removePost = postId => dispatch =>
        */
       dispatch(dispRemovePost(postId));
     });
+
+/* if you're looking for getIndex, due to the fact that it manipulates the feed
+ * section of the store, it's actually in the feed actions */
