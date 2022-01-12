@@ -22,7 +22,10 @@ class Api::UsersController < ApplicationController
   end
 
   def featured
-    render json: ["stub"]
+    @featured_users = User.where("id >= trunc( random() * (select max(id) from users) + 1)")
+      .order(:id)
+      .limit(3)
+    render :featured
   end
 
   private
