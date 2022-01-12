@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { createPost } from "../../actions/posts";
-import { closeModal } from "../../actions/modal"
-import  PostForm   from './post_form';
+import { closeModal } from "../../actions/modal";
+import  PostForm   from "./post_form";
 
 const mSTP = ({errors: { post: errors }}) => ({
   errors,
@@ -11,6 +11,6 @@ const mSTP = ({errors: { post: errors }}) => ({
 const mDTP = {
   action: createPost,
   closeModal,
-}
+};
 
 export default connect(mSTP,mDTP)(PostForm);
