@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :notifications, only: :index
     resources :feed, only: :index
     resource  :session, only: [ :create, :destroy, :show ]
-    resources :posts, except: [ :index, :edit, :new ] do
+    resources :posts, except: [ :edit, :new ] do
       resource :like, only: [ :create, :destroy ]
     end
   end
