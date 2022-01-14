@@ -2,6 +2,7 @@ import React   from "react";
 import Splash  from "./splash/splash";
 import Feed    from "./feed/feed_container";
 import Explore from "./explore/explore_container";
+import Featured from "./featured/featured_container";
 import {
   AuthRoute,
   AuthSplitRoute,
@@ -40,8 +41,9 @@ const App = () => (
       <AuthRoute exact path={sessionUrlsStrings}
              component={Splash} />
       <Route exact path={Four04Path}
-             component={Four04}
-      />
+             component={Four04} />
+      <Route exact path={"/featured/"}
+        component={Featured} />
       <Redirect to="/404" />
     </Switch>
     <Route path={[
