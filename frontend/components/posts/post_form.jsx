@@ -6,7 +6,7 @@ class PostForm extends React.Component {
     this.state = {};
     this.state["body"] = props.body || "";
     this.state["id"] = props.id;
-    this._update = this._update.bind(this);
+    this._input = this._input.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
@@ -20,8 +20,12 @@ class PostForm extends React.Component {
       });
   }
 
-  _update(event) {
+  _input(event) {
     this.setState( { body: event.currentTarget.textContent } );
+  }
+
+  _file_update(event) {
+    console.log(event);
   }
 
   render() {
@@ -41,7 +45,12 @@ class PostForm extends React.Component {
             </div>
           </div>
           <footer className="post-properties">
-            <div></div>
+            <div>
+              <input type="file"
+                     accept="image/*"
+                     name="image"
+                     onChange={this._file_update} />
+            </div>
             <div>
               <input type="submit"
                      value={this.props.formType} />
