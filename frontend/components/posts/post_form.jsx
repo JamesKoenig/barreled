@@ -46,10 +46,11 @@ class PostForm extends React.Component {
           </div>
           <footer className="post-properties">
             <div>
-              <input type="file"
-                     accept="image/*"
-                     name="image"
-                     onChange={this._file_update} />
+              { this.props.formType === "Create Post" ?
+                 (<input type="file"
+                    accept="image/*"
+                    name="image"
+                    onChange={this._file_update} /> ) : null }
             </div>
             <div>
               <input type="submit"
