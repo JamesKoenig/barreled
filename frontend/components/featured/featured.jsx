@@ -20,9 +20,9 @@ const Featured = ({featuredUsers, getFeatured}) => {
         { featuredUsers.map( ({id,username}) => {
           console.log(id);
           console.log(username);
-          return (<FeaturedAccount key={`featured-user-${id}`} 
+          return (<FeaturedAccount key={`featured-user-${id}`}
                             userId={id}
-                            userName={username} />) }) }
+                            userName={username} />); }) }
       </ul>
     </div>
   );
