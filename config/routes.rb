@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources :posts, except: [ :edit, :new ] do
       resource :like, only: [ :create, :destroy ]
     end
+    resources :likes, only: [ :index ]
   end
 end
