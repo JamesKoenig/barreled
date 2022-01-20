@@ -25,5 +25,5 @@ export const deletePost = postId =>
 
 export const fetchPosts = () =>
   $.ajax({
-    url: `api/posts/`
+    url: "api/posts/",
   });
