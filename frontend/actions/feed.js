@@ -11,28 +11,16 @@ export const receiveFeed = feedEntities => ({
   feedEntities,
 });
 
-export const getFeed = () => dispatch =>
-  fetchFeed()
+const genGetFeedLike = callback => () => dispatch =>
+  callback()
     .then( ({feedItems,posts,users}) => {
       dispatch(receiveFeed(feedItems));
       dispatch(receivePosts(posts));
       dispatch(receiveUsers(users));
     });
 
-// if I were to have to write this a third time... I'd abstract it
-export const getIndex = () => dispatch =>
-  fetchPosts()
-    .then( ({feedItems,posts,users}) => {
-      dispatch(receiveFeed(feedItems));
-      dispatch(receivePosts(posts));
-      dispatch(receiveUsers(users));
-    });
+export const getFeed  = genGetFeedLike(fetchFeed);
 
-export const getLikes = () => dispatch =>
-  fetchLikes()
-    .then( ({feedItems,posts,users}) => {
-      dispatch(receiveFeed(feedItems));
-      dispatch(receivePosts(posts));
-      dispatch(receiveUsers(users));
-    });
+export const getIndex = genGetFeedLike(fetchPosts);
 
+export const getLikes = genGetFeedLike(fetchLikes); 
