@@ -20,10 +20,6 @@ import * as exploreUrls from "../utils/paths/explore";
 import Header     from "./header/header";
 import Four04Path from "../utils/paths/404";
 
-import {
-  useLocation
-} from "react-router-dom";
-
 const postUrlsStrings    = Object.values(postUrls);
 const exploreUrlStrings  = Object.values(exploreUrls);
 const sessionUrlsStrings = Object.values(sessionUrls);
