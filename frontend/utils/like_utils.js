@@ -9,3 +9,8 @@ export const unlikePost = postId =>
     url: `api/posts/${postId}/like`,
     method: "DELETE",
   });
+
+export const fetchLikes = () =>
+  $.ajax({
+    url: "api/likes",
+  });
