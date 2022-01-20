@@ -1,7 +1,9 @@
-import { connect       } from "react-redux";
-import   AuthForm        from "./auth_form";
-import { createNewUser,
-         clearErrs     } from "../../actions/session.js";
+import { connect  } from "react-redux";
+import   AuthForm   from "./auth_form";
+import {
+  createNewUser,
+  clearErrs
+} from "../../actions/session.js";
 
 const mSTP = () => ({
   fields: [
