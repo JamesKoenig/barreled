@@ -29,4 +29,9 @@ class Api::LikesController < ApplicationController
       render json: ["unable to unlike post"], status: 400
     end
   end
+
+  def index
+    @posts = current_user.liked_posts
+    render "api/posts/index"
+  end
 end
