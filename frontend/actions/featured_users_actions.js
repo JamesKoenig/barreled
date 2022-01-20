@@ -4,7 +4,7 @@ export const RECEIVE_FEATURED_USERS = "RECEIVE_FEATURED_USERS";
 
 const receiveFeatured = featuredUsers => ({
   type: RECEIVE_FEATURED_USERS,
-  featuredUsers,
+  ...featuredUsers, //confusingly, featuredUsers is the key of the array
 });
 
 export const getFeatured = () => dispatch =>
