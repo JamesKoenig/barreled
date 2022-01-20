@@ -33,6 +33,10 @@ module.exports = {
               ],
             },
         ],
+        "no-fallthrough" : [
+          "error",
+          { "commentPattern": "break[\\s\\w]*omitted" },
+        ],
         "linebreak-style": [
             "error",
             "unix"
