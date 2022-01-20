@@ -2,6 +2,7 @@ import React   from "react";
 import Splash  from "./splash/splash";
 import Feed    from "./feed/feed_container";
 import Explore from "./explore/explore_container";
+import LikedPosts from "./likes/like_index_container";
 import Featured from "./featured/featured_container";
 import {
   AuthRoute,
@@ -40,6 +41,9 @@ const App = () => (
              component={Four04} />
       <Route exact path={"/featured/"}
         component={Featured} />
+      <Route exact path={"/liked_posts/"}
+             component={LikedPosts} />
+
       <Redirect to="/404" />
     </Switch>
     <Route path={[
