@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build:dev": "webpack --mode=development",
+    "watch:dev": "webpack --mode=development --watch",
     "postinstall": "webpack",
     "lint": "eslint frontend"
   },
