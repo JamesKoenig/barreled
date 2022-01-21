@@ -2,11 +2,7 @@ import React, {
   useEffect,
 } from "react";
 
-const FeaturedAccount = ({userName}) => (
-  <li>
-    <p>{`${userName}`}</p>
-  </li>
-);
+import FeaturedUser from "./featured_user_container";
 
 const Featured = ({featuredUsers, getFeatured}) => {
   useEffect( () => {
@@ -20,9 +16,9 @@ const Featured = ({featuredUsers, getFeatured}) => {
         { featuredUsers.map( ({id,username}) => {
           console.log(id);
           console.log(username);
-          return (<FeaturedAccount key={`featured-user-${id}`}
-                            userId={id}
-                            userName={username} />); }) }
+          return (<FeaturedUser key={`featured-user-${id}`}
+                                userId={id}
+                                userName={username} />); }) }
       </ul>
     </div>
   );
