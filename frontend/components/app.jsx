@@ -3,7 +3,7 @@ import Splash  from "./splash/splash";
 import Feed    from "./feed/feed_container";
 import Explore from "./explore/explore_container";
 import LikedPosts from "./likes/like_index_container";
-import Featured from "./featured/featured_container";
+import FeaturedIndex from "./featured/featured_index_container";
 import {
   AuthRoute,
   AuthSplitRoute,
@@ -40,7 +40,7 @@ const App = () => (
       <Route exact path={Four04Path}
              component={Four04} />
       <Route exact path={"/featured/"}
-        component={Featured} />
+        component={FeaturedIndex} />
       <Route exact path={"/liked_posts/"}
              component={LikedPosts} />
 
