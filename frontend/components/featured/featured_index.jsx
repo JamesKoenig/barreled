@@ -13,12 +13,11 @@ const Featured = ({featuredUsers, getFeatured}) => {
     <div className="featured-accounts">
       <h3>featured accounts</h3>
       <ul>
-        { featuredUsers.map( ({id,username}) => {
-          console.log(id);
-          console.log(username);
-          return (<FeaturedUser key={`featured-user-${id}`}
+        { featuredUsers.map( ({id,username}) =>
+          <FeaturedUser key={`featured-user-${id}`}
                                 userId={id}
-                                userName={username} />); }) }
+                                userName={username} />
+        )}
       </ul>
     </div>
   );
