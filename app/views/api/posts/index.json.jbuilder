@@ -12,9 +12,11 @@ end
 json.posts do
   @posts.each do |post|
     json.set! post.id do
-      json.extract! post, :id, :body
-      json.authorId post.author_id
+      json.extract! post, :id, :body, :author_id, :total_likes
       json.dateTime post.created_at
+      json.isLiked  post.post_liked
+      photo = Post.find(post.id).photo
+      json.photoUrl photo.attached? ? url_for(photo) : nil
     end
   end
 end

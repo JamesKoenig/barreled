@@ -110,4 +110,16 @@ class User < ApplicationRecord
         Arel.sql('likes.user_id IS NOT NULL as post_liked')
       )
   end
+
+  def liked_items
+    liked_posts.select(
+      :created_at,
+      :id,
+      :username,
+      :body,
+      :author_id,
+      :total_likes,
+      Arel.sql('true as post_liked')
+    )
+  end
 end
