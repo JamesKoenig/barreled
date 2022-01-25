@@ -3,7 +3,6 @@ import Splash  from "./splash/splash";
 import Feed    from "./feed/feed_container";
 import Explore from "./explore/explore_container";
 import LikedPosts from "./likes/like_index_container";
-import FeaturedIndex from "./featured/featured_index_container";
 import {
   AuthRoute,
   AuthSplitRoute,

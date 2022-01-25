@@ -3,7 +3,7 @@ import React, {
 } from "react";
 
 import FeedItem from "./feed_item";
-import Featured from "../featured/featured_index_container.jsx"
+import Featured from "../featured/featured_index_container.jsx";
 
 const Feed = ({ feedItems, getFeed }) => {
   useEffect(() => {

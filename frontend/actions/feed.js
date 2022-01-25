@@ -23,4 +23,4 @@ export const getFeed  = genGetFeedLike(fetchFeed);
 
 export const getIndex = genGetFeedLike(fetchPosts);
 
-export const getLikes = genGetFeedLike(fetchLikes); 
+export const getLikes = genGetFeedLike(fetchLikes);
