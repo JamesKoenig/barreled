@@ -22,6 +22,12 @@ const mDTP = (dispatch, {match: { params: { postId } } }) => ({
   )],
 });
 
+
+const navLinks = [
+  ["/liked_posts", "Liked Posts" ],
+  ["/explore", "Explore" ],
+];
+
 /* routerProps is being used in lieu of ownProps to signal their sole
  *  origin/use */
 const mergeProps = ({ currentUserId,
@@ -31,9 +37,9 @@ const mergeProps = ({ currentUserId,
                     { match: { params: { postId } } } ) => {
   if(postId && posts[postId]
           && posts[postId].authorId === currentUserId ) {
-    return { navButtons: [editPost, ...navButtons] };
+    return { navButtons: [editPost, ...navButtons], navLinks };
   } else {
-    return { navButtons };
+    return { navButtons, navLinks };
   }
 };
 
