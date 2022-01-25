@@ -10,6 +10,9 @@ const Feed = ({ feedItems, getFeed }) => {
   }, []);
   return (
     <div id="feed">
+      <div id="featured-pane">
+        <h1>hello world</h1>
+      </div>
       <ul id="feed-index">
         {feedItems.map( (feedItem,idx) => (
           <FeedItem key={`feed-${idx}`} {...feedItem} />
