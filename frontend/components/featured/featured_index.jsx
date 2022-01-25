@@ -11,7 +11,9 @@ const Featured = ({featuredUsers, getFeatured}) => {
 
   return (
     <div className="featured-accounts">
-      <h3>featured accounts</h3>
+      <h2 className="featured-title">
+        featured accounts
+      </h2>
       <ul>
         { featuredUsers.map( ({id,username}) =>
           <FeaturedUser key={`featured-user-${id}`}

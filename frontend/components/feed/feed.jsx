@@ -3,6 +3,7 @@ import React, {
 } from "react";
 
 import FeedItem from "./feed_item";
+import Featured from "../featured/featured_index_container.jsx"
 
 const Feed = ({ feedItems, getFeed }) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const Feed = ({ feedItems, getFeed }) => {
   return (
     <div id="feed">
       <div id="featured-pane">
-        <h1>hello world</h1>
+        <Featured />
       </div>
       <ul id="feed-index">
         {feedItems.map( (feedItem,idx) => (

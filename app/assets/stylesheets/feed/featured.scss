@@ -2,8 +2,16 @@
     position: fixed;
     width: 200px;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    left: 0;
+    right: 10%;
 }
 
+.featured-accounts {
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-user-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
