@@ -39,8 +39,6 @@ const App = () => (
              component={Splash} />
       <Route exact path={Four04Path}
              component={Four04} />
-      <Route exact path={"/featured/"}
-        component={FeaturedIndex} />
       <Route exact path={"/liked_posts/"}
              component={LikedPosts} />
 
