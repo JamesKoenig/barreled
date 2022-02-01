@@ -27,9 +27,13 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# for seeding
+gem 'faker'
+
 # must be in top level for hiroku
 gem 'jquery-rails'
 
+# for image hosting
 gem "aws-sdk-s3"
 
 # Use ActiveStorage variant
