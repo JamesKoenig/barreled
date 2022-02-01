@@ -7,6 +7,7 @@ class PostForm extends React.Component {
     this.state["body"] = props.body || "";
     this.state["id"] = props.id;
     this._input = this._input.bind(this);
+    this._file_update = this._file_update.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
