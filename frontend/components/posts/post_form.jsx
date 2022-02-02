@@ -41,7 +41,7 @@ class PostForm extends React.Component {
             <div className="post-text post-form-input-field"
                  contentEditable
                  suppressContentEditableWarning
-                 onInput={this._update}>
+                 onInput={this._input}>
               { this.props.body || null }
             </div>
           </div>
