@@ -8,13 +8,17 @@ export const postPost = postData =>
     url: "/api/posts/",
     method: "POST",
     data: postData,
+    contentType: false,
+    processData: false,
   });
 
-export const patchPost = post =>
+export const patchPost = postData =>
   $.ajax({
-    url: `api/posts/${post.id}`,
+    url: `api/posts/${postData.id}`,
     method: "PATCH",
     data: postData,
+    contentType: false,
+    processData: false,
   });
 
 export const deletePost = postId =>
