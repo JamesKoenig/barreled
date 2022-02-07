@@ -11,8 +11,8 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(author_id: current_user.id,
-                     body: params[:body])
+    @post = Post.new(formFields)
+    @post.author_id = current_user.id
     if @post.save
       render :show
     else
@@ -53,5 +53,29 @@ class Api::PostsController < ApplicationController
   def index
     @posts = Post.all
     render :index
+  end
+
+  private
+
+  def formFields
+    hashMaybe(params.require(:post).permit(:id,:body,:photo))
+  end
+
+  def maybe(thing)
+    return case thing
+           when "undefined"
+             nil
+           else
+             thing
+           end
+  end
+
+  def hashMaybe(things)
+    res = {}
+    # note that this isn't lazy
+    things.each do |key,value|
+      res[key] = maybe(value)
+    end
+    return res
   end
 end
