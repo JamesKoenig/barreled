@@ -44,8 +44,8 @@ export const getPost = postId => dispatch =>
  *   might make debugging a pain in the ass later, so this is only used
  *   for create & update.
  */
-const postAction = utilAction => post => dispatch =>
-  utilAction(post)
+const postAction = utilAction => formData => dispatch =>
+  utilAction(formData)
     .then( ({ posts, users }) => {
       dispatch(receivePosts(posts));
       dispatch(receiveUsers(users));

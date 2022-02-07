@@ -13,6 +13,12 @@ class PostForm extends React.Component {
 
   _handleSubmit(event) {
     event.preventDefault();
+
+    const formData = new FormData();
+    ["id","body","imageAttachment"].map( key =>
+      formData.append(`post[key]`, this.state[key])
+    );
+
     this.props.action(this.state)
       .then( () => {
         if(this.props.errors.length === 0) {

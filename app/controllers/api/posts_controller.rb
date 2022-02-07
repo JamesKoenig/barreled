@@ -12,7 +12,7 @@ class Api::PostsController < ApplicationController
 
   def create
     @post = Post.new(author_id: current_user.id,
-                     body: params[:post][:body])
+                     body: params[:body])
     if @post.save
       render :show
     else
@@ -30,7 +30,7 @@ class Api::PostsController < ApplicationController
 
     if @post.author.id != current_user.id
       render json: ["cannot edit another user's posts"], status: 401
-    elsif @post.update(body: params[:post][:body])
+    elsif @post.update(body: params[:body])
       render :show
     else
       render json: @post.errors.full_messages, status: 422

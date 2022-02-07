@@ -3,18 +3,18 @@ export const fetchPost = postId =>
     url: `api/posts/${postId}`,
   });
 
-export const postPost = post =>
+export const postPost = postData =>
   $.ajax({
     url: "/api/posts/",
     method: "POST",
-    data: { post },
+    data: postData,
   });
 
 export const patchPost = post =>
   $.ajax({
     url: `api/posts/${post.id}`,
     method: "PATCH",
-    data: { post },
+    data: postData,
   });
 
 export const deletePost = postId =>
