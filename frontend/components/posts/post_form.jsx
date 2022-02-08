@@ -15,11 +15,15 @@ class PostForm extends React.Component {
     event.preventDefault();
 
     const formData = new FormData();
-    ["id","body","imageAttachment"].map( key =>
-      formData.append(`post[key]`, this.state[key])
+    [
+      "id",
+      "body",
+      "photo",
+    ].map( key =>
+      formData.append(`post[${key}]`, this.state[key])
     );
 
-    this.props.action(this.state)
+    this.props.action(formData)
       .then( () => {
         if(this.props.errors.length === 0) {
           this.props.closeModal();
@@ -32,7 +36,7 @@ class PostForm extends React.Component {
   }
 
   _file_update(event) {
-    this.setState( { imageAttachment: event.currentTarget.files[0] } );
+    this.setState( { photo: event.currentTarget.files[0] } );
   }
 
   render() {
