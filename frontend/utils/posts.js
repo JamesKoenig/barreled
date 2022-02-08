@@ -14,7 +14,7 @@ export const postPost = postData =>
 
 export const patchPost = postData =>
   $.ajax({
-    url: `api/posts/${postData.id}`,
+    url: `api/posts/${postData.get("post[id]")}`,
     method: "PATCH",
     data: postData,
     contentType: false,
