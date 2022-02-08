@@ -1,11 +1,12 @@
 import React from "react";
 
-const FeaturedUser = ({userName}) => (
+import FeaturedFollowButton from "./featured_follow_button_container";
+
+const FeaturedUser = ({userId, userName}) => (
   <li className="featured-user-element">
     <p>{`${userName}`} </p>
-    <span className="material-icons md-dark">
-      person_add_alt
-    </span>
+    <FeaturedFollowButton
+      userId={userId} />
   </li>
 );
 

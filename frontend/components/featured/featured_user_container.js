@@ -5,7 +5,7 @@ import {
   fetchFollowState,
 } from "../../actions/follow_actions";
 
-const mSTP = (state, userId) => ({
+const mSTP = (state, {userId} ) => ({
   user: state.entities.users[userId],
 });
 
