@@ -61,5 +61,8 @@ module.exports = {
     },
     "overrides": [{
         "files": ["*.js", "*.jsx"],
-    }]
+    }],
+    "globals": {
+      "process": true,
+    },
 };
