@@ -45,6 +45,7 @@
   "homepage": "https://github.com/JamesKoenig/barreled#readme",
   "devDependencies": {
     "eslint": "^7.23.0",
-    "eslint-plugin-react": "^7.28.0"
+    "eslint-plugin-react": "^7.28.0",
+    "redux-logger": "^3.0.6"
   }
 }
