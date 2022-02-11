@@ -14,5 +14,5 @@ WHERE
     likes.user_id = 1
   OR
     --include all the posts that the user hasn't liked, though
-    likes.user_id IS NULL 
+    likes.user_id IS NULL
 LIMIT 3;
