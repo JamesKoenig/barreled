@@ -27,4 +27,19 @@ class Post < ApplicationRecord
         .group("posts.id")
         .pluck(Arel.sql("count(likes.user_id)"))[0]
   end
+
+  def Post::photo_url(blob_id,filename)
+    return nil unless (blob_id && filename)
+    url_strs = [
+      "rails",
+      "active_storage",
+      "blobs",
+      ActiveStorage.verifier.generate(blob_id, purpose: :blob_id),
+      filename
+    ].map do |unescaped_string|
+      CGI.escape unescaped_string
+    end
+
+    return "/"+url_strs.join("/")
+  end
 end

@@ -98,6 +98,20 @@ class User < ApplicationRecord
             AND
               feeds.user_id = likes.user_id
       SQL
+      ).joins(<<~SQL
+        LEFT OUTER JOIN
+          active_storage_attachments AS attachments ON
+              attachments.record_type = 'Post'
+            AND
+              attachments.name        = 'photo'
+            AND
+              attachments.record_id   = posts.id
+      SQL
+      ).joins(<<~SQL
+        LEFT OUTER JOIN
+          active_storage_blobs AS blobs ON
+            blobs.id = attachments.blob_id
+      SQL
       ).select(
         :created_at,
         :who,
@@ -107,6 +121,12 @@ class User < ApplicationRecord
         :body,
         :author_id,
         :total_likes,
+        Arel.sql('attachments.blob_id'),
+        Arel.sql('blobs.filename AS blob_filename'),
+        # this next line only works because there are no reblogs --
+        #   if reblog functionality were ever to be added to this app, then
+        #     posts from non-followers can end up on the feed
+        Arel.sql('action = \'post\' AS is_followed'),
         Arel.sql('likes.user_id IS NOT NULL as post_liked')
       )
   end
