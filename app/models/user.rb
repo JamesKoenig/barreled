@@ -127,7 +127,9 @@ class User < ApplicationRecord
         #   if reblog functionality were ever to be added to this app, then
         #     posts from non-followers can end up on the feed
         Arel.sql('action = \'post\' AS is_followed'),
-        Arel.sql('likes.user_id IS NOT NULL as post_liked')
+        Arel.sql('likes.user_id IS NOT NULL as post_liked'),
+        # probably should change to reference the actual follows table
+        Arel.sql('feeds.user_id = who AS hidden_follow')
       )
   end
 
