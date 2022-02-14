@@ -19,12 +19,11 @@ const mDTP = (dispatch, { userId }) => ({
       : () => {}, //short-term: do nothing if isFollowed hasn't been fetched
 });
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return {
-    ...stateProps,
-    ...dispatchProps,
-    ...ownProps,
-    toggleFollow: dispatchProps.toggleFollow(stateProps.isFollowed),
-  }
-}
-export default connect(mSTP,mDTP)(FollowButton);
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+  ...stateProps,
+  ...dispatchProps,
+  ...ownProps,
+  toggleFollow: dispatchProps.toggleFollow(stateProps.isFollowed),
+});
+
+export default connect(mSTP,mDTP,mergeProps)(FollowButton);
