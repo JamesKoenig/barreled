@@ -12,10 +12,10 @@ json.posts do
       json.set!       feed_item.post_id do
         json.id       feed_item.post_id
         json.isLiked  feed_item.post_liked
-        if feed_item.action == "post"
-          photo = Post.find(feed_item.post_id).photo
-          json.photoUrl photo.attached? ? url_for(photo) : nil
-        end
+        json.photoUrl Post::photo_url(
+          feed_item.blob_id,
+          feed_item.blob_filename
+        )
         json.extract! feed_item, :body, :post_id, :total_likes
       end
     end
