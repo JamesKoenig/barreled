@@ -28,6 +28,38 @@ class Post < ApplicationRecord
         .pluck(Arel.sql("count(likes.user_id)"))[0]
   end
 
+  def Post::with_metadata
+    Post.joins(<<~SQL
+      JOIN
+        users AS authors ON
+          authors.id = posts.author_id
+    SQL
+    ).joins(<<~SQL
+      LEFT OUTER JOIN
+        active_storage_attachments AS attachments ON
+            attachments.record_type = 'Post'
+          AND
+            attachments.name        = 'photo'
+          AND
+            attachments.record_id   = posts.id
+    SQL
+    ).joins(<<~SQL
+      LEFT OUTER JOIN
+        active_storage_blobs AS blobs ON
+          blobs.id = attachments.blob_id
+    SQL
+    ).select(<<~SQL
+      posts.created_at    AS post_created_timestamp,
+      posts.id            AS post_id,
+      posts.body          AS post_body,
+      authors.id          AS author_id,
+      authors.username    AS author_username,
+      attachments.blob_id AS blob_id,
+      blobs.filename      AS blob_filename
+    SQL
+    )
+  end
+
   def Post::photo_url(blob_id,filename)
     return nil unless (blob_id && filename)
     url_strs = [
