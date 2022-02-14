@@ -1,6 +1,6 @@
 import React from "react";
 
-import FeaturedFollowButton from "./featured_follow_button_container";
+import FeaturedFollowButton from "../follow/follow_button_container";
 
 const FeaturedUser = ({userId, userName}) => (
   <li className="featured-user-element">

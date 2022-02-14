@@ -25,4 +25,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     toggleFollow: dispatchProps.toggleFollow(stateProps.isFollowed),
   }
 }
-export default connect(null,mDTP)(FeaturedFollowButton);
+export default connect(mSTP,mDTP)(FeaturedFollowButton);
