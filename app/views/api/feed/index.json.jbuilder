@@ -26,7 +26,7 @@ json.users do
   @feed_items.each do |feed_item|
     json.set!       feed_item.who do
       json.id       feed_item.who
-      json.extract! feed_item, :username
+      json.extract! feed_item, :username, :is_followed, :hidden_follow
     end
   end
 end
