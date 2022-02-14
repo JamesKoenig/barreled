@@ -4,8 +4,8 @@ import React, {
 
 import onlyOnce from "../../utils/only_once";
 
-const FeaturedFollowButton = ({
-  isHidden,
+const FollowButton = ({
+  hiddenFollow,
   isFollowed,
   fetchFollowState,
   toggleFollow,
@@ -22,7 +22,7 @@ const FeaturedFollowButton = ({
     fetchFollowState();
   }, []);
 
-  return (isFollowed === undefined || isHidden) ? null : (
+  return (isFollowed === undefined || hiddenFollow) ? null : (
     <button className="user-follow-button post-interaction-button"
             onClick={followButtonOnClick} >
       <span className="material-icons md-dark">
@@ -32,4 +32,4 @@ const FeaturedFollowButton = ({
   );
 };
 
-export default FeaturedFollowButton;
+export default FollowButton;

@@ -1,13 +1,15 @@
 import { connect } from "react-redux";
-import FeaturedFollowButton from "./featured_follow_button";
+import FollowButton from "./follow_button";
 import {
   toggleFollow,
   fetchFollowState,
 } from "../../actions/follow_actions";
 
-const mSTP = (store, {userId}) => ({
-  isFollowed: store.users[userId] ? store.users[userId].isFollowed : undefined,
-});
+const mSTP = ({entities: { users }}, {userId}) =>
+  users[userId] ? ({
+    isFollowed: users[userId].isFollowed,
+    hiddenFollow: users[userId].hiddenFollow,
+  }) : ({ });
 
 const mDTP = (dispatch, { userId }) => ({
   fetchFollowState: () => dispatch(fetchFollowState(userId)),
@@ -25,4 +27,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     toggleFollow: dispatchProps.toggleFollow(stateProps.isFollowed),
   }
 }
-export default connect(mSTP,mDTP)(FeaturedFollowButton);
+export default connect(mSTP,mDTP)(FollowButton);
