@@ -4,7 +4,8 @@ SELECT
   posts.body          AS post_body,
   authors.id          AS author_id,--technically uneccessary vs posts.author_id
   authors.username    AS author_username,
-  attachments.blob_id AS blob_id
+  attachments.blob_id AS blob_id,
+  blobs.filename      AS blob_filename
 FROM
   posts
 INNER JOIN -- all posts have authors
@@ -17,6 +18,9 @@ LEFT OUTER JOIN -- not all posts have attachments
       attachments.name        = 'photo' --must be a photo
     AND
       attachments.record_id   = posts.id
+LEFT OUTER JOIN
+  active_storage_blobs AS blobs ON
+    blobs.id = attachments.blob_id
 ORDER BY
   post_created_timestamp DESC
 LIMIT 15;
