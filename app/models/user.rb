@@ -134,7 +134,11 @@ class User < ApplicationRecord
   end
 
   def liked_items
-    liked_posts.select(
+    liked_posts.joins(<<~SQL
+      JOIN users ON
+        users.id = posts.author_id
+    SQL
+    ).select(
       :created_at,
       :id,
       :username,
@@ -142,6 +146,6 @@ class User < ApplicationRecord
       :author_id,
       :total_likes,
       Arel.sql('true as post_liked')
-    )
+    ).order(created_at: :desc)
   end
 end

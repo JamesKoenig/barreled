@@ -31,7 +31,7 @@ class Api::LikesController < ApplicationController
   end
 
   def index
-    @posts = current_user.liked_posts.order(created_at: :desc)
+    @posts = current_user.liked_items
     render "api/posts/index"
   end
 end
